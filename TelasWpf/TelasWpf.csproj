@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\busca.png" />
+    <None Remove="images\Cliente.png" />
+    <None Remove="images\compra.png" />
+    <None Remove="images\consultaVenda.png" />
+    <None Remove="images\Elemento_de_Fundo_azul.png" />
+    <None Remove="images\estoque.png" />
+    <None Remove="images\fornecedor.png" />
+    <None Remove="images\funcionarios.png" />
+    <None Remove="images\fundo.png" />
+    <None Remove="images\fundo_cinza.png" />
+    <None Remove="images\fundo_sismib.png" />
+    <None Remove="images\Loading.png" />
+    <None Remove="images\logo.png" />
+    <None Remove="images\logoLetra.png" />
+    <None Remove="images\menu.png" />
+    <None Remove="images\movel.png" />
+    <None Remove="images\pagamento.png" />
+    <None Remove="images\recebimento.png" />
+    <None Remove="images\relatorio.png" />
+    <None Remove="images\Search.png" />
+    <None Remove="images\servico.png" />
+    <None Remove="images\venda.png" />
+    <None Remove="images\voltar.png" />
+    <None Remove="TelasCadastro\SM.png" />
+    <None Remove="TelasCadastro\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\busca.png" />
+    <Resource Include="images\Cliente.png" />
+    <Resource Include="images\compra.png" />
+    <Resource Include="images\consultaVenda.png" />
+    <Resource Include="images\estoque.png" />
+    <Resource Include="images\fornecedor.png" />
+    <Resource Include="images\funcionarios.png" />
+    <Resource Include="images\fundo_sismib.png" />
+    <Resource Include="images\fundo.png" />
+    <Resource Include="images\fundo_cinza.png" />
+    <Resource Include="images\Elemento_de_Fundo_azul.png" />
+    <Resource Include="images\Loading.png" />
+    <Resource Include="images\logo.png" />
+    <Resource Include="images\logoLetra.png" />
+    <Resource Include="images\menu.png" />
+    <Resource Include="images\movel.png" />
+    <Resource Include="images\pagamento.png" />
+    <Resource Include="images\recebimento.png" />
+    <Resource Include="images\relatorio.png" />
+    <Resource Include="images\Search.png" />
+    <Resource Include="images\servico.png" />
+    <Resource Include="images\venda.png" />
+    <Resource Include="images\voltar.png" />
+    <Resource Include="TelasCadastro\SM.png" />
+    <Resource Include="TelasCadastro\user.png" />
+  </ItemGroup>
+
+</Project>

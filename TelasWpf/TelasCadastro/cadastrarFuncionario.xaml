@@ -1,0 +1,166 @@
+﻿<Window x:Class="TelasWpf.TelasCadastro.cadastrarFuncionario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelasWpf.TelasCadastro"
+        mc:Ignorable="d"
+        Title="cadastrarFuncionario" Height="450" Width="800">
+    <Grid Background="#FFD3E6FF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#FF004AAD">
+            <StackPanel>
+                <Image Source="/TelasCadastro/SM.png" Height="52"></Image>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Background="#FF004AAD">
+            <StackPanel Margin="231,5,265,5">
+                <Label Foreground="White" FontSize="22" Width="236">Casdastrar Funcionario
+                </Label>
+            </StackPanel>
+
+            <StackPanel Margin="617,11,75,16">
+                <Label FontSize="16" Foreground="White" Width="41">User</Label>
+            </StackPanel>
+
+            <StackPanel Margin="670,0,0,0">
+                <Image Source="/TelasCadastro/user.png" Height="52"></Image>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="136,68,140,38" Grid.Row="1" Background="White"/>
+
+        <Grid Grid.Column="1" Margin="106,55,166,55" Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF004AAD"/>
+                    <GradientStop Color="#FF5DE0E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <StackPanel Margin="6,0,346,210">
+                <Label Foreground="White" FontSize="16">Nome:</Label>
+            </StackPanel>
+
+            <StackPanel Margin="10,25,234,205">
+                <TextBox Height="16" Width="227"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="252,0,154,209">
+                <Label Foreground="White" FontSize="16" Content="CPF:"/>
+            </StackPanel>
+
+            <StackPanel Margin="256,25,25,210">
+                <TextBox Height="18"/>
+            </StackPanel>
+
+            <StackPanel Margin="5,46,360,172">
+                <Label Foreground="White" FontSize="16" Content="Data de nasc" Width="101"/>
+            </StackPanel>
+
+            <StackPanel Margin="10,72,360,137">
+                <TextBox Height="16" Width="96"/>
+            </StackPanel>
+
+            <StackPanel Margin="131,46,234,172">
+                <Label Foreground="White" FontSize="16" Content="Estado Civil" Width="101" Height="54"/>
+            </StackPanel>
+
+            <StackPanel Margin="136,72,201,137">
+                <TextBox Height="16" Width="131"/>
+            </StackPanel>
+
+            <StackPanel Margin="286,46,79,156">
+                <Label Foreground="White" FontSize="16" Content="RG " Width="101"/>
+            </StackPanel>
+
+            <StackPanel Margin="293,72,25,137">
+                <TextBox Height="16" Width="151"/>
+            </StackPanel>
+
+            <StackPanel Margin="6,85,345,120">
+                <Label Foreground="White" FontSize="16" Content="Cidade" Width="112"/>
+            </StackPanel>
+
+            <StackPanel Margin="11,109,330,93">
+                <TextBox Height="16" Width="134"/>
+            </StackPanel>
+
+            <StackPanel Margin="143,85,208,109">
+                <Label Foreground="White" FontSize="16" Content="Estado" Width="112"/>
+            </StackPanel>
+
+            <StackPanel Margin="151,109,190,94">
+                <TextBox Height="16" Width="134"/>
+            </StackPanel>
+
+            <StackPanel Margin="291,84,60,96">
+                <Label Foreground="White" FontSize="16" Content="telefone" Width="112"/>
+            </StackPanel>
+
+            <StackPanel Margin="298,109,25,98">
+                <TextBox Height="16" Width="146"/>
+            </StackPanel>
+
+            <StackPanel Margin="6,121,345,69">
+                <Label Foreground="White" FontSize="16" Content="Função" Width="112"/>
+            </StackPanel>
+
+            <StackPanel Margin="11,148,312,35">
+                <TextBox Height="16" Width="146"/>
+            </StackPanel>
+
+            <StackPanel Margin="161,121,190,69">
+                <Label Foreground="White" FontSize="16" Content="Carga Horária" Width="112"/>
+            </StackPanel>
+
+            <StackPanel Margin="169,148,154,45">
+                <TextBox Height="19" Width="146"/>
+            </StackPanel>
+
+            <StackPanel Margin="6,165,345,38">
+                <Label Foreground="White" FontSize="16" Content="Setor" Width="112" Height="77"/>
+            </StackPanel>
+
+            <StackPanel Margin="11,192,312,12">
+                <TextBox Height="16" Width="146"/>
+            </StackPanel>
+
+            <StackPanel Margin="161,165,190,36">
+                <Label Foreground="White" FontSize="16" Content="Salário" Width="112" Height="75"/>
+            </StackPanel>
+
+            <StackPanel Margin="166,192,157,13">
+                <TextBox Height="16" Width="146"/>
+            </StackPanel>
+
+            <StackPanel Margin="338,148,25,71">
+                <Button Click="btnVoltar_Click">Voltar</Button>
+            </StackPanel>
+
+            <StackPanel Margin="338,187,25,31">
+                <Button>Salvar</Button>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>
