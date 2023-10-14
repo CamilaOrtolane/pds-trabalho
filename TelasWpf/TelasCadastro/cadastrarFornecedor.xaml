@@ -112,7 +112,7 @@
             </StackPanel>
 
             <StackPanel Margin="233,215,120,10">
-                <Button>Salvar</Button>
+                <Button Click="btnSalvar_Click">Salvar</Button>
             </StackPanel>
 
             <StackPanel Margin="114,215,240,10">

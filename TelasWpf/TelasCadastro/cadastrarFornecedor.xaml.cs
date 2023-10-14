@@ -57,7 +57,9 @@ namespace TelasWpf.TelasCadastro
                 var result = MessageBox.Show("Deseja continuar?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)
                 {
-                    this.Close();
+                    var newWindow = new MenuPrincipal();
+                    newWindow.Show();
+                    Close();
                 }
                 else
                 {

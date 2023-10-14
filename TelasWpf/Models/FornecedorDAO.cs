@@ -33,12 +33,12 @@ namespace TelasWpf.Models
             try
             {
                 var query = conn.Query();
-                query.CommandText = "INSERT INTO Fornecedor (nome_fantasia_for, razao_social_for, cnpj_for, cidade_for, estado_fun) VALUES (@nome_fantasia_for, @razao_social_for, @cnpj_for, @cidade_for, @estado_fun)";
+                query.CommandText = "INSERT INTO Fornecedor (nome_fantasia_for, razao_social_for, cnpj_for, cidade_for, estado_for) VALUES (@nome_fantasia_for, @razao_social_for, @cnpj_for, @cidade_for, @estado_for)";
                 query.Parameters.AddWithValue("@nome_fantasia_for", t.NomeFantasia);
                 query.Parameters.AddWithValue("@razao_social_for", t.RazaoSocial);
                 query.Parameters.AddWithValue("@cnpj_for", t.Cnpj);
                 query.Parameters.AddWithValue("@cidade_for", t.Cidade);
-                query.Parameters.AddWithValue("@estado_fun", t.Estado);
+                query.Parameters.AddWithValue("@estado_for", t.Estado);
                 
 
                 var result = query.ExecuteNonQuery();
@@ -79,7 +79,7 @@ namespace TelasWpf.Models
                         NomeFantasia = DAOhelpers.GetString(reader, "razao_social_for"),
                         Cnpj = DAOhelpers.GetString(reader, "cnpj_for"),
                         Cidade = DAOhelpers.GetString(reader, "cidade_for"),
-                        Estado = DAOhelpers.GetString(reader, "estado_fun")
+                        Estado = DAOhelpers.GetString(reader, "estado_for")
                     });
                 }
 
