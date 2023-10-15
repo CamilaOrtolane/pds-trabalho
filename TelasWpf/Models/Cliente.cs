@@ -10,7 +10,7 @@ namespace TelasWpf.Models
     {
         public int Id { get; set; }
         public string NomeCliente { get; set; }
-        public string DataNasc { get; set; }
+        public DateTime DataNasc { get; set; }
         public string Cpf { get; set; }
         public string Estado { get; set; }
         public string Cidade { get; set; }

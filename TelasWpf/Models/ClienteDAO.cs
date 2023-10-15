@@ -65,43 +65,44 @@ namespace TelasWpf.Models
         }
         public List<Cliente> List()
         {
+            throw new NotImplementedException();
 
-            try
-            {
-                List<Cliente> list = new List<Cliente>();
+            //try
+            //{
+            //    List<Cliente> list = new List<Cliente>();
 
-                var query = conn.Query();
-                query.CommandText = "SELECT * FROM cliente";
+            //    var query = conn.Query();
+            //    query.CommandText = "SELECT * FROM cliente";
 
-                MySqlDataReader reader = query.ExecuteReader();
+            //    MySqlDataReader reader = query.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    list.Add(new Cliente()
-                    {
-                        Id = reader.GetInt32("id_cli"),
-                        NomeCliente = DAOhelpers.GetString(reader, "nome_cli"),
-                        Cpf = DAOhelpers.GetString(reader, "cpf_cli"),
-                        Rg = DAOhelpers.GetString(reader, "rg_cli"),
-                        Cidade = DAOhelpers.GetString(reader, "cidade_cli"),
-                        Estado = DAOhelpers.GetString(reader, "estado_cli"),
-                        DataNasc = DAOhelpers.GetString(reader, "data_nasc_cli"),
-                        Profissao = DAOhelpers.GetString(reader, "profissao_cli"),
-                        EstadoCivil = DAOhelpers.GetString(reader, "estado_civil_cli"),
-                        Telefone = DAOhelpers.GetString(reader, "telefone_cli"),
-                        Endereco = DAOhelpers.GetString(reader, "rua_cli")
-                    });
-                }
-                return list;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                conn.Close();
-            }
+            //    while (reader.Read())
+            //    {
+            //        list.Add(new Cliente()
+            //        {
+            //            Id = reader.GetInt32("id_cli"),
+            //            NomeCliente = DAOhelpers.GetString(reader, "nome_cli"),
+            //            Cpf = DAOhelpers.GetString(reader, "cpf_cli"),
+            //            Rg = DAOhelpers.GetString(reader, "rg_cli"),
+            //            Cidade = DAOhelpers.GetString(reader, "cidade_cli"),
+            //            Estado = DAOhelpers.GetString(reader, "estado_cli"),
+            //            DataNasc = DAOhelpers.GetString(reader, "data_nasc_cli"),
+            //            Profissao = DAOhelpers.GetString(reader, "profissao_cli"),
+            //            EstadoCivil = DAOhelpers.GetString(reader, "estado_civil_cli"),
+            //            Telefone = DAOhelpers.GetString(reader, "telefone_cli"),
+            //            Endereco = DAOhelpers.GetString(reader, "rua_cli")
+            //        });
+            //    }
+            //    return list;
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
         }
         void IDAO<Cliente>.Update(TelasWpf.Models.Cliente t)
         {

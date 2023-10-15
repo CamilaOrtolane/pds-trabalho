@@ -76,8 +76,8 @@
                 <Label Foreground="White" FontSize="16" Content="Data de nasc" Width="101"/>
             </StackPanel>
 
-            <StackPanel Margin="10,72,360,149">
-                <TextBox x:Name="txtData" Height="16" Width="96"/>
+            <StackPanel Margin="10,72,329,149">
+                <DatePicker Name="dpData"/>
             </StackPanel>
 
             <StackPanel Margin="131,46,234,160">

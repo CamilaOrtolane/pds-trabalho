@@ -75,7 +75,7 @@
             </StackPanel>
 
             <StackPanel Margin="313,212,29,25">
-                <Button FontSize="16">Salvar</Button>
+                <Button FontSize="16" Click="btnSalvar_CLick">Salvar</Button>
             </StackPanel>
 
             <StackPanel Margin="313,170,29,66">

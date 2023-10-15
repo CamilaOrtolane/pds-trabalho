@@ -44,7 +44,9 @@ namespace TelasWpf.TelasCadastro
                 cli.Estado = txtEstado.Text;
                 cli.Cidade = txtCidade.Text;
                 cli.Endereco = txtEndereco.Text;
-                cli.DataNasc = txtData.Text;
+                cli.DataNasc = Convert.ToDateTime(dpData.Text);
+                if (dpData.SelectedDate != null)
+                    cli.DataNasc = (DateTime)dpData.SelectedDate; ;
                 cli.Telefone = txtTelefone.Text;
                 cli.Profissao = txtProfissao.Text;
 
@@ -68,7 +70,7 @@ namespace TelasWpf.TelasCadastro
                     txtEstadoCivil.Text = "";
                     txtEstado.Text = "";
                     txtEndereco.Text = "";
-                    txtData.Text = "";
+                    dpData.Text = "";
                     txtCpf.Text = "";
                     txtCidade.Text = "";
                    
