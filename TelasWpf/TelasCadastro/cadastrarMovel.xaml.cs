@@ -53,11 +53,13 @@ namespace TelasWpf.TelasCadastro
 
                 MovelDAO movelDAO = new MovelDAO();
                 movelDAO.Insert(movel);
-                MessageBox.Show("O fornecedor foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("O movel foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 var result = MessageBox.Show("Deseja continuar?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)
                 {
-                    this.Close();
+                    var newWindow = new MenuPrincipal();
+                    newWindow.Show();
+                    Close();
                 }
                 else
                 {
@@ -83,6 +85,11 @@ namespace TelasWpf.TelasCadastro
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

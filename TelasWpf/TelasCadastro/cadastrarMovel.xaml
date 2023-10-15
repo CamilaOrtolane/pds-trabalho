@@ -140,7 +140,7 @@
             </StackPanel>
 
             <StackPanel Margin="244,215,113,0">
-                <Button>Salvar</Button>
+                <Button Click="btnSalvar_Click">Salvar</Button>
             </StackPanel>
 
         </Grid>

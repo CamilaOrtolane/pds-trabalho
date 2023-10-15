@@ -37,7 +37,7 @@ namespace TelasWpf.Models
                 query.Parameters.AddWithValue("@nome_mov", t.Nome);
                 query.Parameters.AddWithValue("@materia_mov", t.Material);
                 query.Parameters.AddWithValue("@descricao_mov", t.Descricao);
-                query.Parameters.AddWithValue("@comprimento_mov", t.Peso);
+                query.Parameters.AddWithValue("@comprimento_mov", t.Comprimento);
                 query.Parameters.AddWithValue("@cor_mov", t.Cor);
                 query.Parameters.AddWithValue("@altura_mov", t.Altura);
                 query.Parameters.AddWithValue("@largura_mov", t.Largura);

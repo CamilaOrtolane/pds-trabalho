@@ -61,7 +61,7 @@
             </StackPanel>
 
             <StackPanel Margin="10,25,234,205">
-                <TextBox Height="16" Width="227"></TextBox>
+                <TextBox x:Name="txtNome" Height="16" Width="227"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="252,0,154,209">
@@ -69,15 +69,16 @@
             </StackPanel>
 
             <StackPanel Margin="256,25,25,210">
-                <TextBox Height="18"/>
+                <TextBox x:Name="txtCpf" Height="18"/>
             </StackPanel>
 
             <StackPanel Margin="5,46,360,172">
                 <Label Foreground="White" FontSize="16" Content="Data de nasc" Width="101"/>
             </StackPanel>
 
-            <StackPanel Margin="10,72,360,137">
-                <TextBox Height="16" Width="96"/>
+            <StackPanel Margin="10,72,329,137">
+                <DatePicker x:Name="dpData"/>
+
             </StackPanel>
 
             <StackPanel Margin="131,46,234,172">
@@ -85,7 +86,7 @@
             </StackPanel>
 
             <StackPanel Margin="136,72,201,137">
-                <TextBox Height="16" Width="131"/>
+                <TextBox x:Name="txtEstCivi" Height="16" Width="131"/>
             </StackPanel>
 
             <StackPanel Margin="286,46,79,156">
@@ -93,7 +94,7 @@
             </StackPanel>
 
             <StackPanel Margin="293,72,25,137">
-                <TextBox Height="16" Width="151"/>
+                <TextBox x:Name="txtRg" Height="16" Width="151"/>
             </StackPanel>
 
             <StackPanel Margin="6,85,345,120">
@@ -101,7 +102,7 @@
             </StackPanel>
 
             <StackPanel Margin="11,109,330,93">
-                <TextBox Height="16" Width="134"/>
+                <TextBox x:Name="txtCidade" Height="16" Width="134"/>
             </StackPanel>
 
             <StackPanel Margin="143,85,208,109">
@@ -109,7 +110,7 @@
             </StackPanel>
 
             <StackPanel Margin="151,109,190,94">
-                <TextBox Height="16" Width="134"/>
+                <TextBox x:Name="txtEstado" Height="16" Width="134"/>
             </StackPanel>
 
             <StackPanel Margin="291,84,60,96">
@@ -117,7 +118,7 @@
             </StackPanel>
 
             <StackPanel Margin="298,109,25,98">
-                <TextBox Height="16" Width="146"/>
+                <TextBox x:Name="txtTelefone" Height="16" Width="146"/>
             </StackPanel>
 
             <StackPanel Margin="6,121,345,69">
@@ -125,7 +126,7 @@
             </StackPanel>
 
             <StackPanel Margin="11,148,312,35">
-                <TextBox Height="16" Width="146"/>
+                <TextBox x:Name="txtFuncao" Height="16" Width="146"/>
             </StackPanel>
 
             <StackPanel Margin="161,121,190,69">
@@ -133,7 +134,7 @@
             </StackPanel>
 
             <StackPanel Margin="169,148,154,45">
-                <TextBox Height="19" Width="146"/>
+                <TextBox x:Name="txtCarga" Height="19" Width="146"/>
             </StackPanel>
 
             <StackPanel Margin="6,165,345,38">
@@ -141,7 +142,7 @@
             </StackPanel>
 
             <StackPanel Margin="11,192,312,12">
-                <TextBox Height="16" Width="146"/>
+                <TextBox x:Name="txtSetor" Height="16" Width="146"/>
             </StackPanel>
 
             <StackPanel Margin="161,165,190,36">
@@ -149,7 +150,7 @@
             </StackPanel>
 
             <StackPanel Margin="166,192,157,13">
-                <TextBox Height="16" Width="146"/>
+                <TextBox x:Name="txtSalario" Height="16" Width="146"/>
             </StackPanel>
 
             <StackPanel Margin="338,148,25,71">
@@ -157,7 +158,7 @@
             </StackPanel>
 
             <StackPanel Margin="338,187,25,31">
-                <Button>Salvar</Button>
+                <Button Click="btnSalvar_Click">Salvar</Button>
             </StackPanel>
 
         </Grid>

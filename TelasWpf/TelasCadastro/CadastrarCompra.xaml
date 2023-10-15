@@ -59,25 +59,49 @@
                 <Label Foreground="White" FontSize="16" Width="139" Content="Nome do Produto"/>
             </StackPanel>
 
-            <StackPanel Margin="10,31,224,204">
-                <TextBox> </TextBox>
+            <StackPanel Margin="10,31,224,200">
+                <TextBox x:Name="txtNome" Height="20"> </TextBox>
             </StackPanel>
 
             <StackPanel Margin="278,0,25,209">
                 <Label Foreground="White" FontSize="16">Código do produto</Label>
             </StackPanel>
 
-            <StackPanel Margin="278,31,25,204">
-                <TextBox Height="19"/>
+            <StackPanel Margin="278,31,25,200">
+                <TextBox x:Name="txtCodProd"  Height="20"/>
             </StackPanel>
 
-            <StackPanel Margin="161,181,234,28">
-                <Label Foreground="White" FontSize="16" Width="48">Total
+            <StackPanel Margin="10,50,308,175">
+                <Label Foreground="White" FontSize="16" Width="139" Content="Funcionário"/>
+            </StackPanel>
+
+            <StackPanel Margin="10,80,224,104">
+                <TextBox x:Name="txtFuncio"  ></TextBox>
+            </StackPanel>
+            
+            <StackPanel Margin="10,100,308,100">
+                <Label Foreground="White" FontSize="16" Width="139" Content="Fornecedor"/>
+            </StackPanel>
+
+            <StackPanel Margin="10,130,224,100">
+                <TextBox x:Name="txtForn" Height="20"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="278,50,25,109">
+                <Label Foreground="White" FontSize="16">Data</Label>
+            </StackPanel>
+
+            <StackPanel Margin="278,80,25,104">
+                <DatePicker x:Name="dpData"/>
+            </StackPanel>
+
+            <StackPanel Margin="170,181,204,28">
+                <Label Foreground="White" FontSize="16" Width="128">Valor Total
                 </Label>
             </StackPanel>
 
             <StackPanel Margin="172,211,188,13">
-                <TextBox/>
+                <TextBox x:Name="txtValor"/>
             </StackPanel>
 
             <StackPanel Margin="285,210,98,21">
@@ -85,7 +109,7 @@
             </StackPanel>
 
             <StackPanel Margin="375,211,14,21">
-                <Button>Salvar</Button>
+                <Button Click="btnSalvar_Click">Salvar</Button>
             </StackPanel>
 
         </Grid>
