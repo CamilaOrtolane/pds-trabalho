@@ -76,15 +76,17 @@
             </StackPanel>
 
             <StackPanel Margin="10,80,224,104">
-                <TextBox x:Name="txtFuncio"  ></TextBox>
+                <TextBox x:Name="txtFuncio" Width="220"/>
+
             </StackPanel>
             
             <StackPanel Margin="10,100,308,100">
                 <Label Foreground="White" FontSize="16" Width="139" Content="Fornecedor"/>
             </StackPanel>
 
-            <StackPanel Margin="10,130,224,100">
-                <TextBox x:Name="txtForn" Height="20"></TextBox>
+            <StackPanel Margin="10,130,224,50">
+                <TextBox  x:Name="txtForne" Width="220"/>
+
             </StackPanel>
 
             <StackPanel Margin="278,50,25,109">

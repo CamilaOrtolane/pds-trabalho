@@ -15,6 +15,9 @@ using TelasWpf.Models;
 using TelasWpf.Helpers;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
+using MySql.Data.MySqlClient;
+using System.Windows.Markup;
+
 
 namespace TelasWpf.TelasCadastro
 {
@@ -23,9 +26,6 @@ namespace TelasWpf.TelasCadastro
     /// </summary>
     public partial class cadastrarServico : Window
     {
-        private int _id;
-
-        private Servico _servico;
         public cadastrarServico()
         {
             InitializeComponent();
@@ -39,24 +39,30 @@ namespace TelasWpf.TelasCadastro
 
         private void btnSalvar_CLick(object sender, RoutedEventArgs e)
         {
+
             try
             {
-                Servico servico = new Servico();
-                txtTipo.Text = servico.Tipo;
-                txtDescricao.Text = servico.Descricao;
+                Servico ser = new Servico();
+                ser.Nome = txtNome.Text;
+                ser.Descricao = txtDescricao.Text;
 
                 ServicoDAO servicoDAO = new ServicoDAO();
-                servicoDAO.Insert(servico);
-                MessageBox.Show("O Servico foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                servicoDAO.Insert(ser);
+
+                MessageBox.Show("O servico foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 var result = MessageBox.Show("Deseja continuar?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)
                 {
-                    this.Close();
+                    var newWindow = new MenuPrincipal();
+                    newWindow.Show();
+                    Close();
                 }
                 else
                 {
-                    txtTipo.Text = "";
+                    txtNome.Text = "";
                     txtDescricao.Text = "";
+
+
                 }
             }
             catch (Exception ex)

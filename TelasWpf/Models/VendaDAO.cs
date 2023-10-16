@@ -3,40 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TelasWpf.Database;
-using TelasWpf.interfaces;
-using TelasWpf.Helpers;
 using MySql.Data.MySqlClient;
+using TelasWpf.Database;
+using TelasWpf.Helpers;
+using TelasWpf.interfaces;
 
 namespace TelasWpf.Models
 {
-    internal class ServicoDAO : IDAO<Servico>
+    class VendaDAO : IDAO<Venda>
     {
+
         private static Conexao conn;
 
-        public ServicoDAO()
+        public VendaDAO()
         {
             conn = new Conexao();
         }
 
-        void IDAO<Servico>.Delete(TelasWpf.Models.Servico t)
+        void IDAO<Venda>.Delete(TelasWpf.Models.Venda t)
         {
             throw new NotImplementedException();
         }
-        Servico IDAO<Servico>.GetById(int id)
+        Venda IDAO<Venda>.GetById(int id)
         {
             throw new NotImplementedException();
         }
-        public void Insert(Servico t)
+        public void Insert(Venda t)
         {
+            throw new NotImplementedException();
+
             try
             {
                 var query = conn.Query();
-                query.CommandText = "INSERT INTO Servico (nome_ser, descricao_ser) " +
-                    "VALUES (@nome_ser, @descricao_ser)";
-                query.Parameters.AddWithValue("@nome_ser", t.Nome);
-                query.Parameters.AddWithValue("@descricao_ser", t.Descricao);
-
+                query.CommandText = "INSERT INTO Venda (data_ven, valor_ven, descricao_ven, ) " +
+                    "VALUES (@data_ven, @valor_ven, @descricao_ven)";
+                query.Parameters.AddWithValue("@data_ven", t.Data);
+                query.Parameters.AddWithValue("@descricao_ven", t.Descricao);
+                query.Parameters.AddWithValue("@valor_ven", t.Valor);
                 var resultado = query.ExecuteNonQuery();
                 if (resultado == 0)
                 {
@@ -54,15 +57,16 @@ namespace TelasWpf.Models
                 conn.Close();
             }
         }
-        public List<Servico> List()
+        public List<Venda> List()
+        {
+            throw new NotImplementedException();
+
+        }
+        void IDAO<Venda>.Update(TelasWpf.Models.Venda t)
         {
             throw new NotImplementedException();
         }
-        void IDAO<Servico>.Update(TelasWpf.Models.Servico t)
-        {
-            throw new NotImplementedException();
-        }
-        void IDAO<Servico>.Insert(Servico t)
+        void IDAO<Venda>.Insert(Venda t)
         {
             throw new NotImplementedException();
         }

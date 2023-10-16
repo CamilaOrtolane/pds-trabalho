@@ -39,6 +39,7 @@ namespace TelasWpf.Models
                 query.Parameters.AddWithValue("@data_com", t.Data.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valor_com", t.Valor);
 
+
                 var resultado = query.ExecuteNonQuery();
                 if (resultado == 0)
                 {
@@ -58,40 +59,9 @@ namespace TelasWpf.Models
         }
         public List<Compra> List()
         {
-            throw new NotImplementedException();
+             throw new NotImplementedException();
 
-            /*Tentei fazer o list porém deu erro na conversão pra DateTime,
-             * tem que arrumar um jeito de resolver isso ai*/
 
-            //try
-            //{
-            //    List<Compra> list = new List<Compra>();
-
-            //    var query = conn.Query();
-            //    query.CommandText = "SELECT * FROM compra";
-
-            //    MySqlDataReader reader = query.ExecuteReader();
-
-            //    while (reader.Read())
-            //    {
-            //        list.Add(new Compra()
-            //        {
-            //            id = reader.GetInt32("id_cli"),
-            //            Nome = DAOhelpers.GetString(reader, "nome_com"),
-            //            Data = DAOhelpers.GetString(reader, "data_com"),
-            //            Valor = DAOhelpers.GetDouble(reader, "valor_com")
-            //        });
-            //    }
-            //    return list;
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
         }
         void IDAO<Compra>.Update(TelasWpf.Models.Compra t)
         {

@@ -55,11 +55,11 @@
                 </LinearGradientBrush>
             </Grid.Background>
             <StackPanel Margin="30,25,241,204">
-                <Label FontSize="16" Foreground="White">Tipo de Serviço</Label>
+                <Label FontSize="16" Foreground="White">Nome do Serviço</Label>
             </StackPanel>
 
-            <StackPanel Margin="30,61,216,179">
-                <ComboBox x:Name="txtTipo" Width="224" Height="19"/>
+            <StackPanel Margin="0,61,216,179">
+                <TextBox x:Name="txtNome" TextWrapping="Wrap" Width="200"/>
             </StackPanel>
 
             <StackPanel Margin="30,91,254,129">
@@ -70,9 +70,6 @@
                 <TextBox x:Name="txtDescricao" Height="117" Width="236"></TextBox>
             </StackPanel>
 
-            <StackPanel Margin="305,61,29,117">
-                <DatePicker></DatePicker>
-            </StackPanel>
 
             <StackPanel Margin="313,212,29,25">
                 <Button FontSize="16" Click="btnSalvar_CLick">Salvar</Button>
@@ -82,7 +79,6 @@
                 <Button  Click="btnVoltar_Click" FontSize="16" Content="Voltar"/>
             </StackPanel>
         </Grid>
-
-
+        
     </Grid>
 </Window>

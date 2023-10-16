@@ -20,9 +20,21 @@ namespace TelasWpf.TelasCadastro
     /// </summary>
     public partial class CadastrarCompra : Window
     {
+        
+        private List<Funcionario> funcionarios;
+
+        //private List<Fornecedor> fornecedores;
+
         public CadastrarCompra()
         {
            InitializeComponent();
+            Loaded += CadastrarCompra_Loaded;
+
+        }
+
+        private void CadastrarCompra_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,6 +54,7 @@ namespace TelasWpf.TelasCadastro
 
             try
             {
+
                 Compra com = new Compra();
                 com.Nome = txtNome.Text;
                 com.Data = Convert.ToDateTime(dpData.Text);
@@ -49,7 +62,8 @@ namespace TelasWpf.TelasCadastro
                     com.Data = (DateTime)dpData.SelectedDate;
                 com.Valor = Convert.ToDouble(txtValor.Text);
                 com.Funcionario = txtFuncio.Text;
-                com.Fornecedor = txtForn.Text;
+                com.Fornecedor = txtForne.Text;
+
                 com.CodigoProduto = txtCodProd.Text;
 
                 CompraDAO compraDAO = new CompraDAO();
@@ -68,8 +82,8 @@ namespace TelasWpf.TelasCadastro
                     txtNome.Text = "";
                     txtValor.Text = "";
                     txtCodProd.Text = "";
+                    txtForne.Text = "";
                     txtFuncio.Text = "";
-                    txtForn.Text = "";
                     dpData.Text = "";
 
 
@@ -81,6 +95,11 @@ namespace TelasWpf.TelasCadastro
                 MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
+        }
+
+        private void cbFuncionario_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

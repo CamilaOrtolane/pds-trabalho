@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,12 +34,6 @@ namespace TelasWpf.TelasCadastro
             newWindow.Show();
             Close();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
 
@@ -50,21 +44,22 @@ namespace TelasWpf.TelasCadastro
                 fun.DataNasc = Convert.ToDateTime(dpData.Text);
                 if (dpData.SelectedDate != null)
                     fun.DataNasc = (DateTime)dpData.SelectedDate;
-                fun.Salario = Convert.ToDouble(txtSalario.Text);
+                fun.Cpf = txtCpf.Text;
+                fun.Rg = txtRg.Text;
                 fun.Funcao = txtFuncao.Text;
-                fun.CargaHoraria  = txtCarga.Text;
-                fun.EstadoCivil = txtEstCivi.Text;
+                fun.CargaHoraria = txtCarga.Text;
                 fun.Estado = txtEstado.Text;
+                fun.EstadoCivil = txtEstCivi.Text;
                 fun.Cidade = txtCidade.Text;
                 fun.Setor = txtSetor.Text;
                 fun.Telefone = txtTelefone.Text;
-                fun.Cpf = txtCpf.Text;
-                fun.Rg = txtRg.Text;
+                fun.Salario = Convert.ToDouble(txtSalario.Text);
+
 
                 FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
                 funcionarioDAO.Insert(fun);
 
-                MessageBox.Show("O Funcionario foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("A compra foi adicionada com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 var result = MessageBox.Show("Deseja continuar?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)
                 {
@@ -75,18 +70,17 @@ namespace TelasWpf.TelasCadastro
                 else
                 {
                     txtNome.Text = "";
-                    txtSalario.Text = "";
-                    txtSetor.Text = "";
                     txtTelefone.Text = "";
+                    txtSetor.Text = "";
+                    txtSalario.Text = "";
                     txtRg.Text = "";
                     txtFuncao.Text = "";
                     txtEstCivi.Text = "";
                     txtEstado.Text = "";
                     txtCpf.Text = "";
-                    txtCarga.Text = "";
                     txtCidade.Text = "";
+                    txtCarga.Text = "";
                     dpData.Text = "";
-
 
 
                 }

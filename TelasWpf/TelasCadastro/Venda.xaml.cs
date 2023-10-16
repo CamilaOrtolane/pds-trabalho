@@ -29,5 +29,10 @@ namespace TelasWpf.TelasCadastro
             newWindow.Show();
             Close();
         }
+
+        private void txtSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

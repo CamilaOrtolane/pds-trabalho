@@ -84,7 +84,7 @@ namespace TelasWpf.TelasCadastro
 
         private void btnVenda_Click(object sender, RoutedEventArgs e)
         {
-            var newWindow = new RealizarVenda();
+            var newWindow = new Venda();
             newWindow.Show();
             Close();
         }
