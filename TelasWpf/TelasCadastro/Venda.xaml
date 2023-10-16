@@ -60,7 +60,7 @@
             </StackPanel>
 
             <StackPanel Margin="10,25,10,171">
-                <TextBox x:Name="txtCliente"></TextBox>
+                <TextBox x:Name="txtCliente" TextChanged="txtCliente_TextChanged"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="6,36,336,135">

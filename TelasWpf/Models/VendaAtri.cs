@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TelasWpf.Models
 {
-    class Venda
+    class VendaAtri
     {
         public int Id { get; set; }
         public string Cliente { get; set; }

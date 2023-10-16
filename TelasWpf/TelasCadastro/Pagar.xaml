@@ -55,12 +55,12 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <StackPanel Margin="6,0,384,214">
-                <Label Foreground="White" FontSize="16" Width="62">Nome:</Label>
+            <StackPanel Margin="0,0,324,214">
+                <Label Foreground="White" FontSize="16" Width="122">Despesa:</Label>
             </StackPanel>
 
             <StackPanel Margin="10,25,10,203">
-                <TextBox></TextBox>
+                <TextBox x:Name="txtDespesa"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="6,36,368,184">
@@ -68,7 +68,7 @@
             </StackPanel>
 
             <StackPanel Margin="10,61,368,154">
-                <TextBox Width="114"></TextBox>
+                <TextBox x:Name="txtValor" Width="114"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="141,34,233,179">
@@ -76,7 +76,7 @@
             </StackPanel>
 
             <StackPanel Margin="146,58,160,157">
-                <DatePicker></DatePicker>
+                <DatePicker Name="dpData"></DatePicker>
             </StackPanel>
 
             <StackPanel Margin="313,36,61,179">
@@ -84,7 +84,7 @@
             </StackPanel>
 
             <StackPanel Margin="317,61,10,156">
-                <TextBox Width="142"></TextBox>
+                <TextBox x:Name="txtStatus" Width="142"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="7,74,364,147">
@@ -92,7 +92,7 @@
             </StackPanel>
 
             <StackPanel Margin="10,100,10,63">
-                <TextBox Height="65"></TextBox>
+                <TextBox x:Name="txtDescricao" Height="65"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="10,165,364,51">
@@ -100,7 +100,7 @@
             </StackPanel>
 
             <StackPanel Margin="14,192,313,40">
-                <TextBox Width="142"></TextBox>
+                <TextBox x:Name="txtParcela" Width="142"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="188,165,106,46">
@@ -108,7 +108,7 @@
             </StackPanel>
 
             <StackPanel Margin="193,192,10,30">
-                <TextBox Width="266"></TextBox>
+                <TextBox x:Name="txttipoPag" Width="266"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="105,233,255,0">
@@ -116,7 +116,7 @@
             </StackPanel>
 
             <StackPanel Margin="254,233,106,0">
-                <Button>Salvar</Button>
+                <Button Click="btnSalvar_Click">Salvar</Button>
             </StackPanel>
 
         </Grid>

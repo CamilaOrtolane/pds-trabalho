@@ -3,43 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 using TelasWpf.Database;
-using TelasWpf.Helpers;
 using TelasWpf.interfaces;
 
 namespace TelasWpf.Models
 {
-    class VendaDAO : IDAO<VendaAtri>
+    internal class PagamentoDAO : IDAO<Pagamento>
     {
 
         private static Conexao conn;
 
-        public VendaDAO()
+        public PagamentoDAO()
         {
             conn = new Conexao();
         }
 
-        void IDAO<VendaAtri>.Delete(TelasWpf.Models.VendaAtri t)
+        void IDAO<Pagamento>.Delete(TelasWpf.Models.Pagamento t)
         {
             throw new NotImplementedException();
         }
-        VendaAtri IDAO<VendaAtri>.GetById(int id)
+        Pagamento IDAO<Pagamento>.GetById(int id)
         {
             throw new NotImplementedException();
         }
-        public void Insert(VendaAtri t)
+        public void Insert(Pagamento t)
         {
-            throw new NotImplementedException();
-
             try
             {
                 var query = conn.Query();
-                query.CommandText = "INSERT INTO Venda (data_ven, valor_ven, descricao_ven, ) " +
-                    "VALUES (@data_ven, @valor_ven, @descricao_ven)";
-                query.Parameters.AddWithValue("@data_ven", t.Data);
-                query.Parameters.AddWithValue("@descricao_ven", t.Descricao);
-                query.Parameters.AddWithValue("@valor_ven", t.Valor);
+                query.CommandText = "INSERT INTO Pagamento (nome_pag, data_pag, valor_pag) " +
+                    "VALUES (@nome_pag, @data_pag, @valor_pag)";
+                query.Parameters.AddWithValue("@nome_pag", t.NomeDes);
+                query.Parameters.AddWithValue("@data_pag", t.Data);
+                query.Parameters.AddWithValue("@valor_pag", t.Valor);
+
                 var resultado = query.ExecuteNonQuery();
                 if (resultado == 0)
                 {
@@ -57,16 +54,17 @@ namespace TelasWpf.Models
                 conn.Close();
             }
         }
-        public List<VendaAtri> List()
+        public List<Pagamento> List()
         {
             throw new NotImplementedException();
 
+            
         }
-        void IDAO<VendaAtri>.Update(TelasWpf.Models.VendaAtri t)
+        void IDAO<Pagamento>.Update(TelasWpf.Models.Pagamento t)
         {
             throw new NotImplementedException();
         }
-        void IDAO<VendaAtri>.Insert(VendaAtri t)
+        void IDAO<Pagamento>.Insert(Pagamento t)
         {
             throw new NotImplementedException();
         }

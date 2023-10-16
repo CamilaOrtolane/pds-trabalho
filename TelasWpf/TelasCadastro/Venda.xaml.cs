@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TelasWpf.Models;
 
 namespace TelasWpf.TelasCadastro
 {
@@ -31,6 +32,56 @@ namespace TelasWpf.TelasCadastro
         }
 
         private void txtSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                VendaAtri ven = new VendaAtri();  
+                ven.Cliente = txtCliente.Text;
+                ven.Funcionário = txtFuncionario.Text;
+                ven.Data = Convert.ToDateTime(txtData.Text);
+                if (txtData.SelectedDate != null)
+                    ven.Data = (DateTime)txtData.SelectedDate; 
+
+                ven.Descricao = txtDescricao.Text;
+                ven.Produto = txtProduto.Text;
+                ven.Numero = Convert.ToInt32(txtNumero.Text);
+                ven.Servico = txtProduto.Text;
+                ven.Valor = Convert.ToDouble(txtValor.Text);
+
+                VendaDAO vendaDAO = new VendaDAO();
+                vendaDAO.Insert(ven);
+
+                MessageBox.Show("O Cliente foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                var result = MessageBox.Show("Deseja continuar?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.No)
+                {
+                    var newWindow = new MenuPrincipal();
+                    newWindow.Show();
+                    Close();
+                }
+                else
+                {
+                    txtValor.Text = "";
+                    txtProduto.Text = "";
+                    txtNumero.Text = "";
+                    txtFuncionario.Text = "";
+                    txtDescricao.Text = "";
+                    txtData.Text = "";
+                    txtCliente.Text = "";
+                    txtProduto.Text = "";
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+        }
+
+        private void txtCliente_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

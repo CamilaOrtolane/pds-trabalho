@@ -60,7 +60,7 @@
             </StackPanel>
 
             <StackPanel Margin="10,25,10,173">
-                <TextBox></TextBox>
+                <TextBox x:Name="txtNome"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="6,36,368,179">
@@ -68,15 +68,15 @@
             </StackPanel>
 
             <StackPanel Margin="10,61,368,168">
-                <TextBox Width="114"></TextBox>
+                <TextBox x:Name="txtValor" Width="114"></TextBox>
             </StackPanel>
 
-            <StackPanel Margin="141,34,233,179">
+            <StackPanel Margin="121,34,233,179">
                 <Label Foreground="White" FontSize="16" Width="100">Data</Label>
             </StackPanel>
 
-            <StackPanel Margin="146,58,160,169">
-                <DatePicker></DatePicker>
+            <StackPanel Margin="126,58,180,169">
+                <DatePicker Name="dpData"></DatePicker>
             </StackPanel>
 
             <StackPanel Margin="313,36,61,181">
@@ -84,23 +84,31 @@
             </StackPanel>
 
             <StackPanel Margin="317,61,10,168">
-                <TextBox Width="142"></TextBox>
+                <TextBox x:Name="txtStatus" Width="142"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="7,74,352,128">
                 <Label Foreground="White" FontSize="16" Width="98" Content="Descrição"/>
             </StackPanel>
-
-            <StackPanel Margin="10,100,10,86">
-                <TextBox Height="65"></TextBox>
+            
+            <StackPanel Margin="255,84,10,100">
+                <Label Foreground="White" FontSize="16" Width="158" Content="Data de vencimento"/>
             </StackPanel>
 
+            <StackPanel Margin="10,100,200,86">
+                <TextBox x:Name="txtDescricao" Height="65" TextChanged="TextBox_TextChanged"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="280,110,10,86">
+                <DatePicker Name="dpDataVen"/>
+
+            </StackPanel>
+            
             <StackPanel Margin="10,165,364,57">
                 <Label Foreground="White" FontSize="16" Width="100">Parcela</Label>
             </StackPanel>
 
             <StackPanel Margin="14,192,313,30">
-                <TextBox Width="142"></TextBox>
+                <TextBox x:Name="txtParcela" Width="142"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="188,165,80,51">
@@ -108,7 +116,7 @@
             </StackPanel>
 
             <StackPanel Margin="193,192,10,32">
-                <TextBox Width="266"></TextBox>
+                <TextBox x:Name="txtTipoPaga" Width="266"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="106,225,255,0">
@@ -116,7 +124,7 @@
             </StackPanel>
 
             <StackPanel Margin="254,225,106,0">
-                <Button>Salvar</Button>
+                <Button Click="Button_Click">Salvar</Button>
             </StackPanel>
 
         </Grid>
