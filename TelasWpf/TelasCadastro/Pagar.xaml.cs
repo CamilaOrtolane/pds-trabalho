@@ -51,7 +51,7 @@ namespace TelasWpf.TelasCadastro
                 PagamentoDAO pagamentoDAO = new PagamentoDAO();
                 pagamentoDAO.Insert(pag);
 
-                MessageBox.Show("O Cliente foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Pagamento adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 var result = MessageBox.Show("Deseja continuar?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)
                 {

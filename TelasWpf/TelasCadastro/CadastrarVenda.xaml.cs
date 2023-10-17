@@ -36,23 +36,24 @@ namespace TelasWpf.TelasCadastro
 
             try
             {
-                VendaAtri ven = new VendaAtri();  
+
+                VendaAtri ven = new VendaAtri();
                 ven.Cliente = txtCliente.Text;
-                ven.Funcionário = txtFuncionario.Text;
                 ven.Data = Convert.ToDateTime(txtData.Text);
                 if (txtData.SelectedDate != null)
-                    ven.Data = (DateTime)txtData.SelectedDate; 
+                    ven.Data = (DateTime)txtData.SelectedDate;
 
-                ven.Descricao = txtDescricao.Text;
-                ven.Produto = txtProduto.Text;
-                ven.Numero = Convert.ToInt32(txtNumero.Text);
-                ven.Servico = txtProduto.Text;
                 ven.Valor = Convert.ToDouble(txtValor.Text);
+                ven.Descricao = txtDescricao.Text;
+                ven.Funcionário = txtFuncionario.Text;
+                ven.Numero = Convert.ToInt32(txtNumero.Text);
+                ven.Servico = txtServico.Text;
+                ven.Produto = txtProduto.Text;
 
                 VendaDAO vendaDAO = new VendaDAO();
                 vendaDAO.Insert(ven);
 
-                MessageBox.Show("O Cliente foi adicionado com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("A compra foi adicionada com sucesso!", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
                 var result = MessageBox.Show("Deseja continuar?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.No)
                 {
@@ -71,6 +72,7 @@ namespace TelasWpf.TelasCadastro
                     txtCliente.Text = "";
                     txtProduto.Text = "";
 
+
                 }
             }
             catch (Exception ex)
@@ -79,6 +81,7 @@ namespace TelasWpf.TelasCadastro
                 MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
+
         }
 
         private void txtCliente_TextChanged(object sender, TextChangedEventArgs e)

@@ -67,7 +67,7 @@
                 <Label Foreground="White" FontSize="16" Width="100">Funcionário</Label>
             </StackPanel>
 
-            <StackPanel Margin="10,61,10,171">
+            <StackPanel Margin="10,61,220,171">
                 <TextBox x:Name="txtFuncionario"></TextBox>
             </StackPanel>
 
@@ -79,12 +79,20 @@
                 <DatePicker x:Name="txtData"></DatePicker>
             </StackPanel>
 
-            <StackPanel Margin="261,75,106,74">
+            <StackPanel Margin="261,80,106,74">
                 <Label Foreground="White" FontSize="16" Width="98">Numero</Label>
             </StackPanel>
 
-            <StackPanel Margin="265,102,10,149">
+            <StackPanel Margin="265,107,10,149">
                 <TextBox x:Name="txtNumero"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="261,36,106,135">
+                <Label Foreground="White" FontSize="16" Width="98">Serviço:</Label>
+            </StackPanel>
+
+            <StackPanel Margin="265,61,10,171">
+                <TextBox x:Name="txtServico"></TextBox>
             </StackPanel>
 
             <StackPanel Margin="7,124,365,40">
@@ -95,19 +103,19 @@
                 <TextBox x:Name="txtDescricao" Height="50"></TextBox>
             </StackPanel>
 
-            <StackPanel Margin="220,114,65,110">
+            <StackPanel Margin="220,119,65,110">
                 <Label Foreground="White" FontSize="16" Width="98">Valor</Label>
             </StackPanel>
 
-            <StackPanel Margin="260,140,10,2">
+            <StackPanel Margin="265,145,10,2">
                 <TextBox x:Name="txtValor" Height="25"></TextBox>
             </StackPanel>
 
-            <StackPanel Margin="220,160,65,50">
+            <StackPanel Margin="220,165,65,50">
                 <Label Foreground="White" FontSize="16" Width="98">Produto</Label>
             </StackPanel>
 
-            <StackPanel Margin="260,185,10,2">
+            <StackPanel Margin="265,190,10,2">
                 <TextBox x:Name="txtProduto" Height="25"></TextBox>
             </StackPanel>
 
