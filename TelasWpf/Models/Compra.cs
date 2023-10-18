@@ -8,7 +8,7 @@ namespace TelasWpf.Models
 {
     internal class Compra
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public DateTime Data { get; set; }
         public string CodigoProduto { get; set; }

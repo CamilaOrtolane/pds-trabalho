@@ -22,7 +22,28 @@ namespace TelasWpf.Models
 
         void IDAO<Funcionario>.Delete(TelasWpf.Models.Funcionario t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Funcionario WHERE id_fun = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         Funcionario IDAO<Funcionario>.GetById(int id)
         {

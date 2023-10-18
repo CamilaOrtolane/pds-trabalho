@@ -38,7 +38,7 @@ namespace TelasWpf.TelasCadastro
             try
             {
                 Pagamento pag = new Pagamento();
-                pag.NomeDes = txtDespesa.Text;
+                pag.NomePag = txtDespesa.Text;
                 pag.Data = Convert.ToDateTime(dpData.Text);
                 if (dpData.SelectedDate != null)
                     pag.Data = (DateTime)dpData.SelectedDate; ;

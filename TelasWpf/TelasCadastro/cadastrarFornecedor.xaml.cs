@@ -30,7 +30,7 @@ namespace TelasWpf.TelasCadastro
         {
             InitializeComponent();
         }
-        private void btnVoltar_Click (object sender, RoutedEventArgs e)
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             var newWindow = new MenuPrincipal();
             newWindow.Show();
@@ -77,8 +77,8 @@ namespace TelasWpf.TelasCadastro
 
             }
         }
-            
-        
+
+
 
         private void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
@@ -87,5 +87,11 @@ namespace TelasWpf.TelasCadastro
             Close();
         }
 
+        private void btnListar_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new ListFornecedor();
+            newWindow.Show();
+            Close();
+        }
     }
 }

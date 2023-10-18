@@ -20,7 +20,28 @@ namespace TelasWpf.Models
         }
         void IDAO<Movel>.Delete(Movel t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Movel WHERE id_mov = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         Movel IDAO<Movel>.GetById(int id)

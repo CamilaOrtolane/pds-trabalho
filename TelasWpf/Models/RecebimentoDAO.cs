@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TelasWpf.Database;
+using TelasWpf.Helpers;
 using TelasWpf.interfaces;
 
 namespace TelasWpf.Models
@@ -20,7 +22,28 @@ namespace TelasWpf.Models
 
         void IDAO<Recebimento>.Delete(TelasWpf.Models.Recebimento t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Recebimento WHERE id_rec = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         Recebimento IDAO<Recebimento>.GetById(int id)
         {
@@ -64,7 +87,38 @@ namespace TelasWpf.Models
         }
         public List<Recebimento> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Recebimento> list = new List<Recebimento>();
+
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM Recebimento";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Recebimento()
+                    {
+                        Id = reader.GetInt32("id_rec"),
+                        Data = reader.GetDateTime("data_rec"),
+                        Parcela = DAOhelpers.GetString(reader, "parcela_rec"),
+                        Valor = DAOhelpers.GetDouble(reader, "valor_rec"),
+                        DataVenc = reader.GetDateTime("vencimento_rec")
+
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         void IDAO<Recebimento>.Update(TelasWpf.Models.Recebimento t)
         {

@@ -9,7 +9,7 @@ namespace TelasWpf.Models
     internal class Pagamento
     {
         public int Id { get; set; }
-        public string NomeDes { get; set;}
+        public string NomePag { get; set;}
         public DateTime Data { get; set;}
         public double Valor { get; set;}
         public string Descricao { get; set;}

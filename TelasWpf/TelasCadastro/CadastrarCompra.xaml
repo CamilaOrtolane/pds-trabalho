@@ -97,21 +97,24 @@
                 <DatePicker x:Name="dpData"/>
             </StackPanel>
 
-            <StackPanel Margin="170,181,204,28">
+            <StackPanel Margin="52,181,310,28">
                 <Label Foreground="White" FontSize="16" Width="128">Valor Total
                 </Label>
             </StackPanel>
 
-            <StackPanel Margin="172,211,188,13">
+            <StackPanel Margin="50,211,310,13">
                 <TextBox x:Name="txtValor"/>
             </StackPanel>
 
-            <StackPanel Margin="285,210,98,21">
+            <StackPanel Margin="165,210,215,21">
                 <Button Click="btnVoltar_Click">Voltar</Button>
             </StackPanel>
 
-            <StackPanel Margin="375,211,14,21">
+            <StackPanel Margin="260,211,120,21">
                 <Button Click="btnSalvar_Click">Salvar</Button>
+            </StackPanel>
+            <StackPanel Margin="355,211,25,21">
+                <Button Click="btnConsulta_Click">Consultar</Button>
             </StackPanel>
 
         </Grid>

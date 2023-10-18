@@ -111,13 +111,18 @@
                 <TextBox x:Name="txtEnd" Width="463" Height="33"></TextBox>
             </StackPanel>
 
-            <StackPanel Margin="233,215,120,10">
-                <Button Click="btnSalvar_Click">Salvar</Button>
+            <StackPanel Margin="130,215,230,10">
+                <Button Width="90" Click="btnSalvar_Click">Salvar</Button>
             </StackPanel>
+            <StackPanel Margin="250,215,120,10">
+                <Button Width="90" Click="btnListar_Click">Consultar</Button>
+            </StackPanel>
+            
 
-            <StackPanel Margin="114,215,240,10">
-                <Button Content="Voltar" Click="btnVoltar_Click"/>
+            <StackPanel Margin="20,215,350,10">
+                <Button Width="90" Content="Voltar" Click="btnVoltar_Click"/>
             </StackPanel>
+            
 
         </Grid>
 

@@ -101,5 +101,12 @@ namespace TelasWpf.TelasCadastro
         {
             
         }
+
+        private void btnConsulta_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new ListCompra();
+            newWindow.Show();
+            Close();
+        }
     }
 }
