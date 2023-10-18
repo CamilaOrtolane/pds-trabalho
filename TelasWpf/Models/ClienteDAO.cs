@@ -105,11 +105,11 @@ namespace TelasWpf.Models
                         NomeCliente = DAOhelpers.GetString(reader, "nome_cli"),
                         Cpf = DAOhelpers.GetString(reader, "cpf_cli"),
                         Rg = DAOhelpers.GetString(reader, "rg_cli"),
+                        EstadoCivil = DAOhelpers.GetString(reader, "estado_civil_cli"),
                         Cidade = DAOhelpers.GetString(reader, "cidade_cli"),
                         Estado = DAOhelpers.GetString(reader, "estado_cli"),
                         DataNasc = reader.GetDateTime("data_nasc_cli"),
                         Profissao = DAOhelpers.GetString(reader, "profissao_cli"),
-                        EstadoCivil = DAOhelpers.GetString(reader, "estado_civil_cli"),
                         Telefone = DAOhelpers.GetString(reader, "telefone_cli"),
                         Endereco = DAOhelpers.GetString(reader, "rua_cli")
                     });

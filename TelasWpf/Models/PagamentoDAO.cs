@@ -95,7 +95,7 @@ namespace TelasWpf.Models
                         Id = reader.GetInt32("id_pag"),
                         NomePag = DAOhelpers.GetString(reader, "nome_pag"),
                         Data = reader.GetDateTime("data_pag"),
-                        Valor = DAOhelpers.GetDouble(reader, "valor_pag"),
+                        Valor = DAOhelpers.GetDouble(reader, "valor_pag")
                         
 
                     });

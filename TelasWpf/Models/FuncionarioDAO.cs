@@ -104,18 +104,18 @@ namespace TelasWpf.Models
                 {
                     list.Add(new Funcionario()
                     {
-                        Id = reader.GetInt32("cod_func"),
-                        Nome = DAOhelpers.GetString(reader, "nome_func"),
-                        Cpf = DAOhelpers.GetString(reader, "cpf_func"),
-                        Rg = DAOhelpers.GetString(reader, "rg_func"),
-                        DataNasc = DAOhelpers.GetDateTime(reader, "datanasc_func"),
-                        Funcao = DAOhelpers.GetString(reader, "email_func"),
-                        CargaHoraria = DAOhelpers.GetString(reader, "celular_func"),
-                        Setor = DAOhelpers.GetString(reader, "funcao_func"),
-                        EstadoCivil = DAOhelpers.GetString(reader, "funcao_func"),
-                        Cidade = DAOhelpers.GetString(reader, "funcao_func"),
-                        Telefone = DAOhelpers.GetString(reader, "funcao_func"),
-                        Salario = DAOhelpers.GetDouble(reader, "salario_func"),
+                        Id = reader.GetInt32("id_fun"),
+                        Nome = DAOhelpers.GetString(reader, "nome_fun"),
+                        Cpf = DAOhelpers.GetString(reader, "cpf_fun"),
+                        Rg = DAOhelpers.GetString(reader, "rg_fun"),
+                        DataNasc = DAOhelpers.GetDateTime(reader, "data_nasc_fun"),
+                        Funcao = DAOhelpers.GetString(reader, "funcao_fun"),
+                        CargaHoraria = DAOhelpers.GetString(reader, "carga_horaria_fun"),
+                        Setor = DAOhelpers.GetString(reader, "setor_fun"),
+                        EstadoCivil = DAOhelpers.GetString(reader, "estado_civil_fun"),
+                        Cidade = DAOhelpers.GetString(reader, "cidade_fun"),
+                        Telefone = DAOhelpers.GetString(reader, "telefone_fun"),
+                        Salario = DAOhelpers.GetDouble(reader, "salario_fun")
 
                     });
                 }

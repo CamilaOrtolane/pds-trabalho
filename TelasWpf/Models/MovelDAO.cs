@@ -102,7 +102,6 @@ namespace TelasWpf.Models
                         Nome = DAOhelpers.GetString(reader, "nome_mov"),
                         Material = DAOhelpers.GetString(reader, "materia_mov"),
                         Descricao = DAOhelpers.GetString(reader, "descricao_mov"),
-                        Peso = DAOhelpers.GetString(reader, "peso_mov"),
                         Comprimento = DAOhelpers.GetString(reader, "comprimento_mov"),
                         Cor = DAOhelpers.GetString(reader, "cor_mov"),
                         Altura = DAOhelpers.GetString(reader, "altura_mov"),
