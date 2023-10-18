@@ -22,7 +22,28 @@ namespace TelasWpf.Models
 
         void IDAO<Compra>.Delete(TelasWpf.Models.Compra t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Compra WHERE id_com = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         Compra IDAO<Compra>.GetById(int id)
         {
@@ -59,10 +80,45 @@ namespace TelasWpf.Models
         }
         public List<Compra> List()
         {
-             throw new NotImplementedException();
 
 
+            try
+            {
+                List<Compra> list = new List<Compra>();
+
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM compra";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Compra()
+                    {
+                        Id = reader.GetInt32("id_com"),
+                        Nome = DAOhelpers.GetString(reader, "nome_com"),
+                        Data = reader.GetDateTime("data_com"),
+                        Valor = DAOhelpers.GetDouble(reader, "valor_com")
+
+
+                    }); 
+
+
+                }
+                  return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+          
+
+       
         void IDAO<Compra>.Update(TelasWpf.Models.Compra t)
         {
             throw new NotImplementedException();

@@ -21,7 +21,28 @@ namespace TelasWpf.Models
 
         void IDAO<Servico>.Delete(TelasWpf.Models.Servico t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Servico WHERE id_ser = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         Servico IDAO<Servico>.GetById(int id)
         {
@@ -56,7 +77,37 @@ namespace TelasWpf.Models
         }
         public List<Servico> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Servico> list = new List<Servico>();
+
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM servico";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Servico()
+                    {
+                        Id = reader.GetInt32("id_ser"),
+                        Nome = reader.GetString("nome_ser"),
+                        Descricao = DAOhelpers.GetString(reader, "descricao_ser")
+                       
+
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         void IDAO<Servico>.Update(TelasWpf.Models.Servico t)
         {

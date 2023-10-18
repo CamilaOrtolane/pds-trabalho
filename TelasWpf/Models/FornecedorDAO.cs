@@ -20,7 +20,28 @@ namespace TelasWpf.Models
         }  
         void IDAO<Fornecedor>.Delete(Fornecedor t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Fornecedor WHERE id_for = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         Fornecedor IDAO<Fornecedor>.GetById(int id)

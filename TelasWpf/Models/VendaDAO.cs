@@ -22,7 +22,28 @@ namespace TelasWpf.Models
 
         void IDAO<VendaAtri>.Delete(TelasWpf.Models.VendaAtri t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM VendaAtri WHERE id_ven = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         VendaAtri IDAO<VendaAtri>.GetById(int id)
         {
@@ -59,7 +80,38 @@ namespace TelasWpf.Models
         }
         public List<VendaAtri> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<VendaAtri> list = new List<VendaAtri>();
+
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM VendaAtri";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new VendaAtri()
+                    {
+                        Id = reader.GetInt32("id_ven"),
+                        Data = reader.GetDateTime("data_ven"),
+                        Descricao = DAOhelpers.GetString(reader, "descricao_ven"),
+                        Valor = DAOhelpers.GetDouble(reader, "valor_ven")
+
+
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
 
         }
         void IDAO<VendaAtri>.Update(TelasWpf.Models.VendaAtri t)

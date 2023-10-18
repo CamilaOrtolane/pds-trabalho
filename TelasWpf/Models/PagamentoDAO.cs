@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TelasWpf.Database;
 using TelasWpf.interfaces;
+using MySql.Data.MySqlClient;
+using TelasWpf.Helpers;
 
 namespace TelasWpf.Models
 {
@@ -20,7 +22,28 @@ namespace TelasWpf.Models
 
         void IDAO<Pagamento>.Delete(TelasWpf.Models.Pagamento t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Pagamento WHERE id_pag = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         Pagamento IDAO<Pagamento>.GetById(int id)
         {
@@ -33,7 +56,7 @@ namespace TelasWpf.Models
                 var query = conn.Query();
                 query.CommandText = "INSERT INTO Pagamento (nome_pag, data_pag, valor_pag) " +
                     "VALUES (@nome_pag, @data_pag, @valor_pag)";
-                query.Parameters.AddWithValue("@nome_pag", t.NomeDes);
+                query.Parameters.AddWithValue("@nome_pag", t.NomePag);
                 query.Parameters.AddWithValue("@data_pag", t.Data);
                 query.Parameters.AddWithValue("@valor_pag", t.Valor);
 
@@ -56,10 +79,42 @@ namespace TelasWpf.Models
         }
         public List<Pagamento> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Pagamento> list = new List<Pagamento>();
 
-            
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM Pagamento";
+
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Pagamento()
+                    {
+                        Id = reader.GetInt32("id_pag"),
+                        NomePag = DAOhelpers.GetString(reader, "nome_pag"),
+                        Data = reader.GetDateTime("data_pag"),
+                        Valor = DAOhelpers.GetDouble(reader, "valor_pag"),
+                        
+
+                    });
+                }
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+
+
+    
         void IDAO<Pagamento>.Update(TelasWpf.Models.Pagamento t)
         {
             throw new NotImplementedException();

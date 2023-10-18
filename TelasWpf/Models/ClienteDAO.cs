@@ -22,7 +22,28 @@ namespace TelasWpf.Models
 
         void IDAO<Cliente>.Delete(TelasWpf.Models.Cliente t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "DELETE FROM Cliente WHERE id_cli = @id ";
+                query.Parameters.AddWithValue("@id", t.Id);
+                
+                var resultado = query.ExecuteNonQuery();
+                if (resultado == 0)
+                {
+                    throw new Exception("O registro não foi removido. Verifique e tente novamente");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         Cliente IDAO<Cliente>.GetById(int id)
         {
@@ -65,44 +86,44 @@ namespace TelasWpf.Models
         }
         public List<Cliente> List()
         {
-            throw new NotImplementedException();
 
-            //try
-            //{
-            //    List<Cliente> list = new List<Cliente>();
+            try
+            {
 
-            //    var query = conn.Query();
-            //    query.CommandText = "SELECT * FROM cliente";
+                List<Cliente> list = new List<Cliente>();
 
-            //    MySqlDataReader reader = query.ExecuteReader();
+                var query = conn.Query();
+                query.CommandText = "SELECT * FROM cliente";
 
-            //    while (reader.Read())
-            //    {
-            //        list.Add(new Cliente()
-            //        {
-            //            Id = reader.GetInt32("id_cli"),
-            //            NomeCliente = DAOhelpers.GetString(reader, "nome_cli"),
-            //            Cpf = DAOhelpers.GetString(reader, "cpf_cli"),
-            //            Rg = DAOhelpers.GetString(reader, "rg_cli"),
-            //            Cidade = DAOhelpers.GetString(reader, "cidade_cli"),
-            //            Estado = DAOhelpers.GetString(reader, "estado_cli"),
-            //            DataNasc = DAOhelpers.GetString(reader, "data_nasc_cli"),
-            //            Profissao = DAOhelpers.GetString(reader, "profissao_cli"),
-            //            EstadoCivil = DAOhelpers.GetString(reader, "estado_civil_cli"),
-            //            Telefone = DAOhelpers.GetString(reader, "telefone_cli"),
-            //            Endereco = DAOhelpers.GetString(reader, "rua_cli")
-            //        });
-            //    }
-            //    return list;
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
+                MySqlDataReader reader = query.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list.Add(new Cliente()
+                    {
+                        Id = reader.GetInt32("id_cli"),
+                        NomeCliente = DAOhelpers.GetString(reader, "nome_cli"),
+                        Cpf = DAOhelpers.GetString(reader, "cpf_cli"),
+                        Rg = DAOhelpers.GetString(reader, "rg_cli"),
+                        Cidade = DAOhelpers.GetString(reader, "cidade_cli"),
+                        Estado = DAOhelpers.GetString(reader, "estado_cli"),
+                        DataNasc = reader.GetDateTime("data_nasc_cli"),
+                        Profissao = DAOhelpers.GetString(reader, "profissao_cli"),
+                        EstadoCivil = DAOhelpers.GetString(reader, "estado_civil_cli"),
+                        Telefone = DAOhelpers.GetString(reader, "telefone_cli"),
+                        Endereco = DAOhelpers.GetString(reader, "rua_cli")
+                    });
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         void IDAO<Cliente>.Update(TelasWpf.Models.Cliente t)
         {
