@@ -1,0 +1,84 @@
+﻿<Window x:Class="TelasWpf.TelasCadastro.cadastrarServico"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelasWpf.TelasCadastro"
+        mc:Ignorable="d"
+        Title="cadastrarServico" Height="450" Width="800">
+    <Grid Background="#FFD3E6FF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <StackPanel Background="#FF004AAD">
+                <Image Source="/TelasCadastro/SM.png" Height="58"></Image>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Background="#FF004AAD">
+            <StackPanel Margin="590,13,96,16">
+                <Label Foreground="White" FontSize="16" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center">User</Label>
+            </StackPanel>
+
+            <StackPanel Margin="634,0,0,0">
+                <Image Source="/TelasCadastro/user.png"></Image>
+            </StackPanel>
+
+            <StackPanel Margin="240,7,308,7">
+                <Label Foreground="White" FontSize="22" Content="Cadastrar serviço"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Background="White" Grid.Column="1" Margin="129,54,138,33" Grid.Row="1"></Grid>
+
+        <Grid Grid.Column="1" Margin="89,38,159,51" Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF004AAD" Offset="0.003"/>
+                    <GradientStop Color="#FF5DE0E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <StackPanel Margin="30,25,241,204">
+                <Label FontSize="16" Foreground="White">Nome do Serviço</Label>
+            </StackPanel>
+
+            <StackPanel Margin="0,61,216,179">
+                <TextBox x:Name="txtNome" TextWrapping="Wrap" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Margin="30,91,254,129">
+                <Label FontSize="16" Content="Descrição" Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel Margin="30,124,216,-13">
+                <TextBox x:Name="txtDescricao" Height="117" Width="236"></TextBox>
+            </StackPanel>
+
+
+            <StackPanel Margin="313,212,29,25">
+                <Button FontSize="16" Click="btnSalvar_CLick">Salvar</Button>
+            </StackPanel>
+
+            <StackPanel Margin="313,170,29,66">
+                <Button  Click="btnVoltar_Click" FontSize="16" Content="Voltar"/>
+            </StackPanel>
+        </Grid>
+        
+    </Grid>
+</Window>

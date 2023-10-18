@@ -1,0 +1,133 @@
+﻿<Window x:Class="TelasWpf.TelasCadastro.Venda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelasWpf.TelasCadastro"
+        mc:Ignorable="d"
+        Title="Venda" Height="450" Width="800">
+    <Grid Background="#FFD3E6FF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="53"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#FF004AAD">
+            <StackPanel>
+                <Image Source="/TelasCadastro/SM.png" Height="52"></Image>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Background="#FF004AAD">
+            <StackPanel Margin="231,5,265,5">
+                <Label Foreground="White" FontSize="22" Width="236">Casdastrar Venda</Label>
+            </StackPanel>
+
+            <StackPanel Margin="617,11,75,16">
+                <Label FontSize="16" Foreground="White" Width="41">User</Label>
+            </StackPanel>
+
+            <StackPanel Margin="670,0,0,0">
+                <Image Source="/TelasCadastro/user.png" Height="52"></Image>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="136,68,140,38" Grid.Row="1" Background="White"/>
+
+        <Grid Grid.Column="1" Margin="106,55,166,55" Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF004AAD"/>
+                    <GradientStop Color="#FF5DE0E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <StackPanel Margin="6,0,365,168">
+                <Label Foreground="White" FontSize="16" Width="62">Cliente</Label>
+            </StackPanel>
+
+            <StackPanel Margin="10,25,10,171">
+                <TextBox x:Name="txtCliente" TextChanged="txtCliente_TextChanged"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="6,36,336,135">
+                <Label Foreground="White" FontSize="16" Width="100">Funcionário</Label>
+            </StackPanel>
+
+            <StackPanel Margin="10,61,220,171">
+                <TextBox x:Name="txtFuncionario"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="6,75,404,121">
+                <Label Foreground="White" FontSize="16" Width="45">Data</Label>
+            </StackPanel>
+
+            <StackPanel Margin="10,99,236,147">
+                <DatePicker x:Name="txtData"></DatePicker>
+            </StackPanel>
+
+            <StackPanel Margin="261,80,106,74">
+                <Label Foreground="White" FontSize="16" Width="98">Numero</Label>
+            </StackPanel>
+
+            <StackPanel Margin="265,107,10,149">
+                <TextBox x:Name="txtNumero"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="261,36,106,135">
+                <Label Foreground="White" FontSize="16" Width="98">Serviço:</Label>
+            </StackPanel>
+
+            <StackPanel Margin="265,61,10,171">
+                <TextBox x:Name="txtServico"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="7,124,365,40">
+                <Label Foreground="White" FontSize="16" Width="98">Descrição</Label>
+            </StackPanel>
+
+            <StackPanel Margin="10,150,250,2">
+                <TextBox x:Name="txtDescricao" Height="50"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="220,119,65,110">
+                <Label Foreground="White" FontSize="16" Width="98">Valor</Label>
+            </StackPanel>
+
+            <StackPanel Margin="265,145,10,2">
+                <TextBox x:Name="txtValor" Height="25"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="220,165,65,50">
+                <Label Foreground="White" FontSize="16" Width="98">Produto</Label>
+            </StackPanel>
+
+            <StackPanel Margin="265,190,10,2">
+                <TextBox x:Name="txtProduto" Height="25"></TextBox>
+            </StackPanel>
+
+            <StackPanel Margin="105,233,255,-21">
+                <Button  Click="btnVoltar_Click">Voltar</Button>
+            </StackPanel>
+
+            <StackPanel Margin="254,233,106,-21">
+                <Button x:Name="txtSalvar" Click="txtSalvar_Click">Salvar</Button>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+</Window>
