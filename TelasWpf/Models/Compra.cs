@@ -10,8 +10,8 @@ namespace TelasWpf.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public DateTime Data { get; set; }
-        public string CodigoProduto { get; set; }
+        public DateTime? Data { get; set; }
+        //public int CodigoProduto { get; set; }
         public Funcionario Funcionario { get; set; }
         public Fornecedor Fornecedor { get; set; }
         public double Valor { get; set; }

@@ -73,5 +73,10 @@ namespace TelasWpf.TelasCadastro
         {
 
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

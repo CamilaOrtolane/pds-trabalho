@@ -47,7 +47,10 @@ namespace TelasWpf.TelasCadastro
                 var fornDao = new FornecedorDAO();
                 cbFornecedor.ItemsSource = fornDao.List();
 
-            } catch (Exception ex) {
+
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -71,7 +74,7 @@ namespace TelasWpf.TelasCadastro
             {
 
                 Compra com = new Compra();
-                //com.Nome = txtNome.Text;
+                com.Nome = txtNome.Text;
                 com.Data = Convert.ToDateTime(dpData.Text);
                 if (dpData.SelectedDate != null)
                     com.Data = (DateTime)dpData.SelectedDate;
@@ -79,18 +82,18 @@ namespace TelasWpf.TelasCadastro
                 //com.Funcionario = txtFuncio.Text;
                 //com.Fornecedor = txtForne.Text;
 
-                com.CodigoProduto = txtCodProd.Text;
+                //com.CodigoProduto = Convert.ToInt32(txtCodProd.Text);
 
                 if (cbFuncionario.SelectedItem != null)
                 {
-                    com.Funcionario = (Funcionario) cbFuncionario.SelectedItem;
+                    com.Funcionario = (Funcionario)cbFuncionario.SelectedItem;
                     //com.Funcionario = cbFuncionario.SelectedItem as Funcionario;
                 }
                 if (cbFornecedor.SelectedItem != null)
                 {
-                    com.Fornecedor = (Fornecedor) cbFornecedor.SelectedItem;
+                    com.Fornecedor = (Fornecedor)cbFornecedor.SelectedItem;
                 }
-                
+
 
                 CompraDAO compraDAO = new CompraDAO();
                 compraDAO.Insert(com);
@@ -109,9 +112,10 @@ namespace TelasWpf.TelasCadastro
                 {
                     cbFornecedor.SelectedIndex = 0;
                     txtValor.Text = "";
-                    txtCodProd.Text = "";
+                    //txtCodProd.Text = "";
                     cbFuncionario.SelectedIndex = 0;    
                     dpData.Text = "";
+                    txtNome.Text = "";
 
 
                 }
@@ -137,6 +141,21 @@ namespace TelasWpf.TelasCadastro
         }
 
         private void cbFornecedor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbFuncionario_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbProduto_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbProduto_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
         {
 
         }

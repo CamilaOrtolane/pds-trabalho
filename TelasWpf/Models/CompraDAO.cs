@@ -82,9 +82,9 @@ namespace TelasWpf.Models
             {
                 var query = conn.Query();
                 query.CommandText = "INSERT INTO Compra (nome_com, data_com, valor_com, id_fun_fk, id_for_fk) " +
-                    "VALUES (@nome_com, @data_com, @valor_com, @id_funcionario)";
+                    "VALUES (@nome_com, @data_com, @valor_com, @id_funcionario, @id_fornecedor)";
                 query.Parameters.AddWithValue("@nome_com", t.Nome);
-                query.Parameters.AddWithValue("@data_com", t.Data.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@data_com", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valor_com", t.Valor);
                 query.Parameters.AddWithValue("@id_funcionario", t.Funcionario.Id);
                 query.Parameters.AddWithValue("@id_fornecedor", t.Fornecedor.Id);
@@ -141,7 +141,7 @@ namespace TelasWpf.Models
                         Valor = DAOhelpers.GetDouble(reader, "valor_com"),
                         Funcionario = funcionario,
                         //Fornecedor = fornecedor
-                        
+
                     });
 
 
@@ -163,20 +163,13 @@ namespace TelasWpf.Models
             //throw new NotImplementedException();
             try
             {
-            //    var funcionarioId = t.Funcionario.Id;
-            //    var funDAO = new FuncionarioDAO();
-
-            //    if (funcionarioId > 0)
-            //        funDAO.Update(t.Funcionario);
-            //    else
-            //        funcionarioId = funDAO.Insert(t.Funcionario);
 
                 var query = conn.Query();
                 query.CommandText = "UPDATE compra SET nome_com = @nome, data_com = @data, valor_com = @valor, id_fun_fk = @idFuncionario, " +
                     "id_for_fk = @idFornecedor";
 
                 query.Parameters.AddWithValue("@nome", t.Nome);
-                query.Parameters.AddWithValue("@data", t.Data.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@data", t.Data?.ToString("yyyy-MM-dd"));
                 query.Parameters.AddWithValue("@valor", t.Valor);
                 query.Parameters.AddWithValue("@idFuncionario", t.Funcionario.Id);
                 query.Parameters.AddWithValue("@idFornecedor", t.Fornecedor.Id);

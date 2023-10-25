@@ -176,11 +176,6 @@ end if;
 end;
 $$ delimiter ;
 
-call salvarCliente ("Vitor", "043.616.612-76", 1536377, 'Solteira(o)', '2006-08-15',"(69) 99913-0319", "DBA", "propria",'Morango','Bela','Acre','Brasil');
-call salvarCliente("Pedro", "043.616.612-77", 1472589, 'Namorando', '2006-08-14',"(69) 99913-0317", "DBA", "propria", 'Laranja','Beterraba','Rondonia','Brasil');
-call salvarCliente("Julia", "043.616.612-78", 1536812, 'Solteira(o)', '2006-08-18', "(69) 99913-0309", "Nefrologista", "propria", 'Hibisco','Ji-Paraná','Rondonia','Brasil');
-
-select * from cliente;
 
 delimiter $$ 
 create procedure salvarFuncionario (nome varchar(60), cpf varchar(20), rg int, estado_civil varchar(20), dataNasc date, telefone varchar(20),setor varchar(20), salario double, carga_hora time,funcao varchar(50), hora_extra time, remuneracao_extra double, rua varchar(20), cidade varchar(20), estado varchar(20), pais varchar(20))
@@ -202,11 +197,6 @@ end if;
 end;
 $$ delimiter ;
 
-call salvarFuncionario ('Luiz','123.456.789-89', 1234567, 'Casado','1988-06-08','(69)1234-4555','Venda',1500.00,'12:00:00','Atender','',0.00,'Flor','Ouro preto','Rondonia','Brasil');
-call salvarFuncionario ('Carlos','089.456.789-89', 894567, 'Solteiro','1989-07-15','(69)7888-4555','Serviço',1600.00,'12:00:00','Conserto','',0.00,'Caramelo','Urupa','Rondonia','Brasil');
-call salvarFuncionario ('Luiza','123.789.156-89', 1458567, 'Divorciada','1978-12-25','(69)7899-4555','Venda',1500.00,'12:00:00','Atender','',0.00,'Feliz','Rio de Janeiro','Rio de Janeiro','Brasil');
-select * from Funcionario;
-
 delimiter $$
 create procedure salvarFornecedor(nome_fan varchar(100), razao_social varchar(100), cnpj varchar(25), rua varchar(100),cidade varchar(100), estado varchar(100), pais varchar(100))
 begin
@@ -226,10 +216,7 @@ end;
 
 $$ delimiter ; 
 
-call salvarFornecedor("moveis lindos", "moveis lindos S.A", '12.345.678/0001-00', 'São João',"Ji-Paraná", 'Rondônia','Brasil');
-call salvarFornecedor ("moveis perfeitos", "moveis perfeitos S.A", '12.345.678/0002-00','Flor de Liz', "Ji-Paraná", 'Rondônia','Brasil');
-call salvarFornecedor("moveis magnificos", "moveis magnificos S.A", '12.345.678/0003-00', 'Casa Preta',"Ji-Paraná", 'Rondônia', 'Brasil');
-select * from Fornecedor;
+
 
 Delimiter $$
 create procedure salvarCaixa(total_sai double, total_ent double, saldo_ini double,saldo_fin double, dia date, hora time, numero int, fk_fun int)
@@ -256,11 +243,6 @@ end if;
 end;
 $$ Delimiter ; 
 
-call salvarCaixa(1000, 2000,500,1500.00,'2023-03-03','08:00:00',1, 1);
-call salvarCaixa(500, 2050,200,1750.00,'2023-04-04','09:00:00',2, 3);
-call salvarCaixa(1000, 2550,300,1850.00,'2023-05-05','07:00:00',3, 2);
-select * from Caixa;
-
 delimiter $$
 create procedure salvarCompra(nome varchar(20), dataCom date, valor double, fk_fun int, fk_for int)
 begin
@@ -277,10 +259,6 @@ if (valor is not null) then
 	end if;
 end;
 $$ delimiter ;
-call salvarCompra('Parafuso', '2023-05-06', 440.00, 1,2);
-call salvarCompra('Armário', '2023-06-16', 9500.00, 2,3);
-call salvarCompra('Televisão', '2023-05-06', 2000.00, 3,1);
-select * from Compra;
 
 delimiter $$ 
 create procedure salvarMovel (nome varchar(50), material varchar(50), descricao varchar(100),
@@ -298,10 +276,6 @@ set fk_compra = (select id_com from compra where (id_com = fk_com));
 end if;
 end;
 
-call salvarMovel ("cadeira", "madeira", "cadeira de madeira", 3.2, 00, "branca", 10, 50, 40, 30, 500, 1);
-call salvarMovel ("cadeira pequena", "madeira", "cadeira pequena", 2.2, 00, "branca", 30, 20, 10, 80, 300,2);
-call salvarMovel ("cadeira grande", "madeira", "cadeira grande", 5.2, 00, "branca", 90, 30, 60, 90, 1000,3);
-select * from Movel;
 
 $$ delimiter ;
 
@@ -320,10 +294,7 @@ else
 end if;
 end;
 $$ delimiter ;
-call salvarDespesa("agua", '2023-11-16', '2023-06-16', 3);
-call salvarDespesa("internet", '2023-11-15', '2023-06-15', 1);
-call salvarDespesa("energia", '2023-11-14', '2023-06-14', 2);
-select * from Despesa;
+
 
 delimiter $$ 
 create procedure salvarPagamento(nome varchar(20), data_pag date, descricao varchar(50), valor double, fk_fun int, fk_des int, fk_cai int)
@@ -344,10 +315,7 @@ else
 end if;
 end;
 $$ delimiter ;
-call salvarPagamento("agua", '2023-12-19', '',100.00, 3, 2, 1);
-call salvarPagamento("Energia", '2023-01-16', '',550.00, 1, 3, 2);
-call salvarPagamento("internet", '2023-09-23', '',100.00, 2, 2, 1);
-select * from Pagamento; 
+
 
 delimiter $$ 
 create procedure salvarServico(nome varchar(20), descricao varchar(1000))
@@ -361,10 +329,7 @@ else
 end if;
 end;
 $$ delimiter ;
-call salvarServico("entrega",'Armário');
-call salvarServico( "reparo",'Geladeira' );
-call salvarServico("entrega",'Fogão' );
-select * from servico;
+
 
 delimiter $$ 
 create procedure salvarVenda(nome varchar(20), data_ven date, descricao varchar(50), valor double, fk_fun int, fk_cli int, fk_ser int, fk_mov int)
@@ -387,10 +352,7 @@ else
 end if;
 end;
 $$ delimiter ;
-call salvarVenda("venda3",'2023-06-17', "venda de sofa", 1500.00, 3,1, 2, 3);
-call salvarVenda( "venda4",'2023-06-16', "venda de cadeira", 258.50,1, 2, 1, 3);
-call salvarVenda( "venda5",'2023-06-15', "venda de bancada", 2900.00,3,1, 3, 2);
-select * from venda;
+
 
 delimiter $$ 
 create procedure salvarMovel_Venda(fk_mov int, fk_ven int)
@@ -410,10 +372,7 @@ set fk_movel = (select id_mov from movel where (id_mov = fk_mov));
 
 end;
 $$ delimiter ;
-call salvarMovel_Venda(1,2);
-call salvarMovel_Venda(3,1);
-call salvarMovel_Venda(3,2);
-select * from movel_venda;
+
 
 delimiter $$ 
 create procedure salvarRecebimento(dataRec date, parcela int, valor double, vencimento date, fk_ven int, fk_cai int)
@@ -433,7 +392,3 @@ set fk_caixa = (select id_cai from caixa where (id_cai = fk_cai));
 
 end;
 $$ delimiter ;
-call salvarRecebimento('2023-05-08', 15, 1500.00,'2024-05-08', 1,2);
-call salvarRecebimento('2021-07-09', 1, 100.00,'2021-08-17', 3,2);
-call salvarRecebimento('2023-04-15', 10, 2500.00,'2024-05-13', 2,3);
-select * from Recebimento;
