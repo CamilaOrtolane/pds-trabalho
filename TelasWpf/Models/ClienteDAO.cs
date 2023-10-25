@@ -20,7 +20,7 @@ namespace TelasWpf.Models
             conn = new Conexao();
         }
 
-        void IDAO<Cliente>.Delete(TelasWpf.Models.Cliente t)
+        public void Delete(TelasWpf.Models.Cliente t)
         {
             try
             {
@@ -126,8 +126,36 @@ namespace TelasWpf.Models
         }
         void IDAO<Cliente>.Update(TelasWpf.Models.Cliente t)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var query = conn.Query();
+                query.CommandText = "UPDATE cliente SET nome_cli = @nome, data_nasc_cli = @data, cpf_cli = @cpf, rg_cli = @rg, estado_cli = @estado, estado_civil_cli = @estadoCivil,   " +
+                    "telefone_cli = @telefone";
+
+                query.Parameters.AddWithValue("@nome", t.NomeCliente);
+                query.Parameters.AddWithValue("@data", t.DataNasc.ToString("yyyy-MM-dd"));
+                query.Parameters.AddWithValue("@cpf", t.Cpf);
+                query.Parameters.AddWithValue("@rg", t.Rg);
+                query.Parameters.AddWithValue("@cidade", t.Cidade);
+                query.Parameters.AddWithValue("@telefone", t.Telefone);
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
+        
         void IDAO<Cliente>.Insert(Cliente t) 
         {
             throw new NotImplementedException();

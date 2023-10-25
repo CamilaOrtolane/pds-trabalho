@@ -18,7 +18,7 @@ namespace TelasWpf.Models
         {
             conn = new Conexao();
         }  
-        void IDAO<Fornecedor>.Delete(Fornecedor t)
+        public void Delete(Fornecedor t)
         {
             try
             {
@@ -96,8 +96,8 @@ namespace TelasWpf.Models
                     list.Add(new Fornecedor()
                     {
                         Id = reader.GetInt32("id_for"),
-                        RazaoSocial = DAOhelpers.GetString(reader, "nome_fantasia_for"),
-                        NomeFantasia = DAOhelpers.GetString(reader, "razao_social_for"),
+                        RazaoSocial = DAOhelpers.GetString(reader, "razao_social_for"),
+                        NomeFantasia = DAOhelpers.GetString(reader, "nome_fantasia_for"),
                         Cnpj = DAOhelpers.GetString(reader, "cnpj_for"),
                         Cidade = DAOhelpers.GetString(reader, "cidade_for"),
                         Estado = DAOhelpers.GetString(reader, "estado_for")
@@ -119,7 +119,33 @@ namespace TelasWpf.Models
 
         void IDAO<Fornecedor>.Update(Fornecedor t)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var query = conn.Query();
+                query.CommandText = "UPDATE fornecedor SET nome_fantasia_for = @nome, cnpj_for = @cnpj, estado_for = @estado, cidade_for = @cidade ";
+
+                query.Parameters.AddWithValue("@nome", t.NomeFantasia);
+                query.Parameters.AddWithValue("@cnpj", t.Cnpj);
+                query.Parameters.AddWithValue("@razaoSocial", t.RazaoSocial);
+                query.Parameters.AddWithValue("@estado", t.Estado);
+                query.Parameters.AddWithValue("@cidade", t.Cidade);
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         void IDAO<Fornecedor>.Insert(Fornecedor t)

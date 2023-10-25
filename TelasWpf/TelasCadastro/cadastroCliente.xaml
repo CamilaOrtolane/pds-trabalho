@@ -140,8 +140,12 @@
                 <Button  Click="btnVoltar_Click">Voltar</Button>
             </StackPanel>
 
-            <StackPanel Margin="247,223,113,0">
+            <StackPanel Margin="247,223,123,0">
                 <Button Click="btnSalvar_Click">Salvar</Button>
+            </StackPanel>
+            
+            <StackPanel Margin="355,222,25,21">
+                <Button Click="btnConsulta_Click">Consultar</Button>
             </StackPanel>
 
         </Grid>

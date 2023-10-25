@@ -60,7 +60,10 @@
             </StackPanel>
 
             <StackPanel Margin="10,31,224,200">
-                <TextBox x:Name="txtNome" Height="20"> </TextBox>
+                <!--<TextBox x:Name="txtNome" Height="20"> </TextBox>-->
+                <ComboBox x:Name="cbProduto" Width="200" DisplayMemberPath="Nome" SelectedValuePath="Id" />
+
+
             </StackPanel>
 
             <StackPanel Margin="278,0,25,209">
@@ -76,7 +79,8 @@
             </StackPanel>
 
             <StackPanel Margin="10,80,224,104">
-                <TextBox x:Name="txtFuncio" Width="220"/>
+                <!--<TextBox x:Name="txtFuncio" Width="220"/>-->
+                <ComboBox x:Name="cbFuncionario" Width="200" DisplayMemberPath="Nome" SelectedValuePath="Id" />
 
             </StackPanel>
             
@@ -85,7 +89,8 @@
             </StackPanel>
 
             <StackPanel Margin="10,130,224,50">
-                <TextBox  x:Name="txtForne" Width="220"/>
+                <!--<TextBox  x:Name="txtForne" Width="220"/>-->
+                <ComboBox x:Name="cbFornecedor" Width="200" DisplayMemberPath="NomeFantasia" SelectedValuePath="Id" SelectionChanged="cbFornecedor_SelectionChanged" />
 
             </StackPanel>
 

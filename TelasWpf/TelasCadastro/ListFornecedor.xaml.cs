@@ -54,5 +54,35 @@ namespace TelasWpf.TelasCadastro
             Close();
         }
 
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedorSelected = dgFornecedor.SelectedItem as Fornecedor;
+
+            var result = MessageBox.Show($"Deseja realmente remover a compra?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new FornecedorDAO();
+                    dao.Delete(fornecedorSelected);
+                    CarregarDados();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            var fornecedorSelected = dgFornecedor.SelectedItem as Fornecedor;
+
+            var window = new CadastrarCompra();
+            window.ShowDialog();
+            CarregarDados();
+        }
     }
 }

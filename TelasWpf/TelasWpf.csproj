@@ -12,6 +12,8 @@
     <None Remove="images\Cliente.png" />
     <None Remove="images\compra.png" />
     <None Remove="images\consultaVenda.png" />
+    <None Remove="images\deleteIcon.png" />
+    <None Remove="images\editarIcon.png" />
     <None Remove="images\Elemento_de_Fundo_azul.png" />
     <None Remove="images\estoque.png" />
     <None Remove="images\fornecedor.png" />
@@ -44,6 +46,8 @@
     <Resource Include="images\Cliente.png" />
     <Resource Include="images\compra.png" />
     <Resource Include="images\consultaVenda.png" />
+    <Resource Include="images\deleteIcon.png" />
+    <Resource Include="images\editarIcon.png" />
     <Resource Include="images\estoque.png" />
     <Resource Include="images\fornecedor.png" />
     <Resource Include="images\funcionarios.png" />

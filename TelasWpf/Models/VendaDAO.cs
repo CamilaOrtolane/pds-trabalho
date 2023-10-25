@@ -20,7 +20,7 @@ namespace TelasWpf.Models
             conn = new Conexao();
         }
 
-        void IDAO<VendaAtri>.Delete(TelasWpf.Models.VendaAtri t)
+        public void Delete(TelasWpf.Models.VendaAtri t)
         {
 
             try

@@ -1,11 +1,11 @@
-﻿<Window x:Class="TelasWpf.TelasCadastro.ListServico"
+﻿<Window x:Class="TelasWpf.TelasCadastro.ListVenda"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TelasWpf.TelasCadastro"
         mc:Ignorable="d"
-        Title="ListServico" Height="450" Width="800">
+        Title="ListVenda" Height="450" Width="800">
     <Grid>
         <Grid>
             <Grid.Background>
@@ -25,18 +25,21 @@
 
             <StackPanel Width="800" Height="70" Background="White" Margin="0, 0, 0, 365">
                 <Label FontSize="40" Margin="20,0" FontWeight="SemiBold">
-                    Listar Servico
+                    Listar Venda
                 </Label>
             </StackPanel>
 
             <Grid Width="600" Height="300" Margin="0,100">
-                <DataGrid Grid.Row="2" Margin="5,5,5,5" x:Name="dgServico" IsReadOnly="true"
+                <DataGrid Grid.Row="2" Margin="5,5,5,5" x:Name="dataGridVenda" IsReadOnly="true"
    AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                         <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
-                        <DataGridTextColumn Header="Descricao" Binding="{Binding Descricao}"/>
-                       
+                        <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
+                        <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                        <DataGridTextColumn Header="Funcionario" Binding="{Binding Funcionario.Nome}"/>
+                        <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor.NomeFantasia}"/>
+                        <DataGridTextColumn Header="Código" Binding="{Binding CodigoProduto}"/>
                         <DataGridTemplateColumn Header="Ações">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -69,5 +72,6 @@
                 <Button Content="Excluir" Height="25" Background="White"/>
             </StackPanel>
         </Grid>
+
     </Grid>
 </Window>

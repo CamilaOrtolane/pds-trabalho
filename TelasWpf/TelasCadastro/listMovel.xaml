@@ -7,24 +7,71 @@
         mc:Ignorable="d"
         Title="listMovel" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF004AAD"/>
+                    <GradientStop Color="#FF5DE0E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="175"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+            <StackPanel Width="800" Height="70" Background="White" Margin="0, 0, 0, 365">
+                <Label FontSize="40" Margin="20,0" FontWeight="SemiBold">
+                    Listar Moveis
+                </Label>
+            </StackPanel>
 
-        <Grid Grid.Row="0">
-            <StackPanel>
-                <Button Background="Transparent" BorderBrush="Transparent" Click="btnVoltar_Click">
-                    <Image Source="\images\voltar.png" Width="100"/>
-                </Button>
+            <Grid Width="600" Height="300" Margin="0,100">
+                <DataGrid Grid.Row="2" Margin="5,5,5,5" x:Name="dgMovel" IsReadOnly="true"
+   AutoGenerateColumns="False" AlternatingRowBackground="#FFE5E5E5" AlternationCount="2" Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
+                        <DataGridTextColumn Header="Material" Binding="{Binding Material}"/>
+                        <DataGridTextColumn Header="Cor" Binding="{Binding Cor}"/>
+                        <DataGridTextColumn Header="Comprimento" Binding="{Binding Compriemnto}"/>
+                        <DataGridTextColumn Header="altura" Binding="{Binding Altura}"/>
+                        <DataGridTextColumn Header="Valor total" Binding="{Binding ValorTotal}"/>
+                        <DataGridTemplateColumn Header="Ações">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
+                                 ToolTip="Visualizar Registro" Margin="0 0 20 0" Click="btnDelete_Click"  >
+                                            Deletar
+                                        </Button>
+                                        <Button 
+                                 ToolTip="Excluir Registro" Click="btnUpdate_Click" >
+                                            Editar
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+            </Grid>
+
+            <StackPanel Width="100" Height="50" Margin="0, 300, 450,0">
+                <Button Content="Voltar" Height="25" Background="White" Click="btnVoltar_Click" />
+
+            </StackPanel>
+            <StackPanel Width="100" Height="50" Margin="0, 300, 200,0">
+                <Button Content="Excluir" Height="25" Background="White"/>
             </StackPanel>
         </Grid>
-        <DataGrid x:Name="dgMovel" Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" />
 
     </Grid>
 </Window>

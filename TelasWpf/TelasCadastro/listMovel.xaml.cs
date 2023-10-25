@@ -23,7 +23,14 @@ namespace TelasWpf.TelasCadastro
         public listMovel()
         {
             InitializeComponent();
+            Loaded+=ListMovel_Loaded;
         }
+
+        private void ListMovel_Loaded(object sender, RoutedEventArgs e)
+        {
+            CarregarDados();
+        }
+
         private void CarregarDados()
         {
             try
@@ -43,6 +50,38 @@ namespace TelasWpf.TelasCadastro
             var newWindow = new MenuPrincipal();
             newWindow.Show();
             Close();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var movelSelected = dgMovel.SelectedItem as Movel;
+
+            var result = MessageBox.Show($"Deseja realmente remover a compra?", "Confirmação de Exclusão",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            try
+            {
+                if (result == MessageBoxResult.Yes)
+                {
+                    var dao = new MovelDAO();
+                    dao.Delete(movelSelected);
+                    CarregarDados();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exceção", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+            var movelSelected = dgMovel.SelectedItem as Movel;
+
+            var window = new cadastrarMovel();
+            window.ShowDialog();
+            CarregarDados();
         }
     }
 }

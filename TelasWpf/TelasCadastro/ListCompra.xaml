@@ -37,19 +37,20 @@
                         <DataGridTextColumn Header="Nome" Binding="{Binding Nome}"/>
                         <DataGridTextColumn Header="Data" Binding="{Binding Data}"/>
                         <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
-                        <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor}"/>
+                        <DataGridTextColumn Header="Funcionario" Binding="{Binding Funcionario.Nome}"/>
+                        <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor.NomeFantasia}"/>
                         <DataGridTextColumn Header="Código" Binding="{Binding CodigoProduto}"/>
                         <DataGridTemplateColumn Header="Ações">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Button
-                                        ToolTip="Visualizar Registro" Margin="0 0 5 0" Click="btnDelete_Click"  >
-                                            <Image Source="/iamges/deleteIcon.png"></Image>
+                                        ToolTip="Visualizar Registro" Margin="0 0 20 0" Click="btnDelete_Click"  >
+                                            Deletar
                                         </Button>
                                         <Button 
                                         ToolTip="Excluir Registro" Click="btnUpdate_Click" >
-                                            <Image Source="/iamges/editarIcon.png"></Image>
+                                            Editar
                                         </Button>
                                     </StackPanel>
                                 </DataTemplate>

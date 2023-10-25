@@ -19,7 +19,7 @@ namespace TelasWpf.Models
             conn = new Conexao();
         }
 
-        void IDAO<Servico>.Delete(TelasWpf.Models.Servico t)
+        public void Delete(TelasWpf.Models.Servico t)
         {
             try
             {
@@ -112,7 +112,30 @@ namespace TelasWpf.Models
         }
         void IDAO<Servico>.Update(TelasWpf.Models.Servico t)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var query = conn.Query();
+                query.CommandText = "UPDATE servico SET nome_ser = @nome, descricao_ser = @descricao ";
+
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@descricao", t.Descricao);
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         void IDAO<Servico>.Insert(Servico t)
         {

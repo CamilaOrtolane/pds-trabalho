@@ -16,44 +16,40 @@ using TelasWpf.Models;
 namespace TelasWpf.TelasCadastro
 {
     /// <summary>
-    /// Lógica interna para ListCompra.xaml
+    /// Lógica interna para ListVenda.xaml
     /// </summary>
-    public partial class ListCompra : Window
+    public partial class ListVenda : Window
     {
-        public ListCompra()
+        public ListVenda()
         {
             InitializeComponent();
-            Loaded+= ListCompra_Loaded1;
+            Loaded+=ListVenda_Loaded;
         }
 
-        private void ListCompra_Loaded1(object sender, RoutedEventArgs e)
+        private void ListVenda_Loaded(object sender, RoutedEventArgs e)
         {
             LoadList();
         }
+
         private void LoadList()
         {
             try
             {
                 var dao = new CompraDAO();
 
-                dataGridCompra.ItemsSource = dao.List();
+                dataGridVenda.ItemsSource = dao.List();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Não Executado", MessageBoxButton.OK, MessageBoxImage.Error);
-            } 
-            
+            }
 
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var compraSelected = dataGridCompra.SelectedItem as Compra;
+            var vendaSelected = dataGridVenda.SelectedItem as VendaAtri;
 
             var result = MessageBox.Show($"Deseja realmente remover a compra?", "Confirmação de Exclusão",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -62,8 +58,8 @@ namespace TelasWpf.TelasCadastro
             {
                 if (result == MessageBoxResult.Yes)
                 {
-                    var dao = new CompraDAO();
-                    dao.Delete(compraSelected);
+                    var dao = new VendaDAO();
+                    dao.Delete(vendaSelected);
                     LoadList();
                 }
             }
@@ -73,21 +69,9 @@ namespace TelasWpf.TelasCadastro
             }
         }
 
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            var compraSelected = dataGridCompra.SelectedItem as Compra;
-
-            var window = new CadastrarCompra();
-            window.ShowDialog();
-            LoadList();
-        }
-
-
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
-            var newWindow = new CadastrarCompra();
-            newWindow.Show();
-            Close();
+
         }
     }
 }

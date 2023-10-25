@@ -18,7 +18,7 @@ namespace TelasWpf.Models
         {
             conn = new Conexao();
         }
-        void IDAO<Movel>.Delete(Movel t)
+        public void Delete(Movel t)
         {
             try
             {
@@ -128,7 +128,39 @@ namespace TelasWpf.Models
 
         void IDAO<Movel>.Update(Movel t)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var query = conn.Query();
+                query.CommandText = "UPDATE movel SET nome_mov = @nome, material_mov = @material, altura_mov = @altura, comprimento = @comprimento_mov, " +
+                    "cor_mov = @cor, peso_mov = @peso, largura_mov = @largura, descricao_mov = @descricao, valor_custo_mov = @valorcusto, valor_venda_mov = @valortotal";
+
+                query.Parameters.AddWithValue("@nome", t.Nome);
+                query.Parameters.AddWithValue("@material", t.Material);
+                query.Parameters.AddWithValue("@altura", t.Altura);
+                query.Parameters.AddWithValue("@comprimento", t.Comprimento);
+                query.Parameters.AddWithValue("@cor", t.Cor);
+                query.Parameters.AddWithValue("@peso", t.Peso);
+                query.Parameters.AddWithValue("@largura", t.Largura);
+                query.Parameters.AddWithValue("@descricao", t.Descricao);
+                query.Parameters.AddWithValue("@valorcusto", t.ValorCusto);
+                query.Parameters.AddWithValue("@valortotal", t.ValorTotal);
+                query.Parameters.AddWithValue("@id", t.Id);
+
+                var result = query.ExecuteNonQuery();
+
+                if (result == 0)
+                    throw new Exception("Atualização do registro não foi realizada.");
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         void IDAO<Movel>.Insert(Movel t)
